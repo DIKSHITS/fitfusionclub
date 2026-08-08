@@ -111,22 +111,22 @@ function Footer() {
 
           <div className="contact-item">
             <FaMapMarkerAlt />
-            <span>Patna, Bihar, India</span>
+            <span>1c/ Kustia Rd, Picnic Garden, opposite merlin iland building, Tiljala, Kolkata, West Bengal 700039, India</span>
           </div>
 
           <div className="contact-item">
             <FaPhoneAlt />
-            <span>+91 98765 43210</span>
+            <a href="tel:+919007089970">+91 9007089970</a>
           </div>
 
           <div className="contact-item">
             <FaEnvelope />
-            <span>info@fusionfitness.com</span>
+            <a href="mailto:fusionfitness365@gmail.com">fusionfitness365@gmail.com</a>
           </div>
 
           <div className="contact-item">
             <FaGlobe />
-            <span>www.fusionfitness.com</span>
+            <span>www.fitfusionclub.com</span>
           </div>
 
         </div>

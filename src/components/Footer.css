@@ -172,6 +172,17 @@ body{
     line-height:28px;
 }
 
+.contact-item a{
+    color:#ecfdf5;
+    line-height:28px;
+    text-decoration:none;
+    word-break:break-word;
+}
+
+.contact-item a:hover{
+    color:#fff;
+}
+
 /*======================================
         FOOTER BOTTOM
 =======================================*/
@@ -304,6 +315,10 @@ body{
 .contact-item{
     flex-direction:column;
     align-items:center;
+    text-align:center;
+}
+
+.contact-item a{
     text-align:center;
 }
 

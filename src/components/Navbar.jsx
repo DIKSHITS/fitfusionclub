@@ -1,6 +1,6 @@
 import React from "react";
 import "./Navbar.css";
-import { FaLeaf } from "react-icons/fa";
+import logo from "../assets/images/logo.png";
 
 const Navbar = () => {
   return (
@@ -11,15 +11,7 @@ const Navbar = () => {
         {/* Logo */}
 
         <div className="logo">
-
-          <div className="logo-icon">
-            <FaLeaf />
-          </div>
-
-          <div className="logo-text">
-            <h2>Fusion Fitness</h2>
-            <span>Wellness Centre</span>
-          </div>
+          <img className="logo-image" src={logo} alt="Fusion Fitness Wellness Centre" />
 
         </div>
 

@@ -2,15 +2,19 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import logo from "../assets/images/logo.png";
 
+import { Link, useLocation } from "react-router-dom";
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const location = useLocation();
 
   const closeMenu = () => {
     setMenuOpen(false);
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
   };
 
   return (
@@ -18,12 +22,12 @@ const Navbar = () => {
 
       <div className="navbar-container">
 
-        {/* =========================
+        {/* =================================
             LOGO
-        ========================== */}
+        ================================== */}
 
-        <a
-          href="#home"
+        <Link
+          to="/"
           className="navbar-logo"
           onClick={closeMenu}
         >
@@ -31,129 +35,167 @@ const Navbar = () => {
             src={logo}
             alt="Fusion Fitness Wellness Centre"
           />
-        </a>
+        </Link>
 
 
-        {/* =========================
-            DESKTOP / MOBILE NAV
-        ========================== */}
+        {/* =================================
+            NAVIGATION
+        ================================== */}
 
-        <nav className={`navbar-nav ${menuOpen ? "menu-open" : ""}`}>
+        <nav
+          className={`navbar-nav ${
+            menuOpen ? "menu-open" : ""
+          }`}
+        >
 
           <ul className="nav-links">
 
+            {/* HOME */}
+
             <li>
-              <a
-                href="#home"
-                className="active"
+              <Link
+                to="/"
+                className={
+                  location.pathname === "/"
+                    ? "active"
+                    : ""
+                }
                 onClick={closeMenu}
               >
                 Home
-              </a>
+              </Link>
             </li>
+
+
+            {/* ABOUT */}
 
             <li>
               <a
-                href="#about"
+                href="/#about"
                 onClick={closeMenu}
               >
                 About Us
               </a>
             </li>
 
+
+            {/* SERVICES */}
+
             <li>
               <a
-                href="#services"
+                href="/#services"
                 onClick={closeMenu}
               >
                 Services
               </a>
             </li>
 
+
+            {/* PROGRAMS */}
+
             <li>
               <a
-                href="#programs"
+                href="/#programs"
                 onClick={closeMenu}
               >
                 Programs
               </a>
             </li>
 
+
+            {/* BLOG */}
+
             <li>
               <a
-                href="#blog"
+                href="/#blog"
                 onClick={closeMenu}
               >
                 Blog
               </a>
             </li>
 
+
+            {/* CONTACT PAGE */}
+
             <li>
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
+                className={
+                  location.pathname === "/contact"
+                    ? "active"
+                    : ""
+                }
                 onClick={closeMenu}
               >
                 Contact Us
-              </a>
+              </Link>
             </li>
 
           </ul>
 
 
-          {/* Mobile Consultation Button */}
+          {/* =================================
+              MOBILE CONSULTATION
+          ================================== */}
 
-          <a
-            href="#contact"
+          <Link
+            to="/booking"
             className="mobile-consult-btn"
             onClick={closeMenu}
           >
             Book Consultation
-          </a>
+          </Link>
 
         </nav>
 
 
-        {/* =========================
-            DESKTOP BUTTON
-        ========================== */}
+        {/* =================================
+            DESKTOP CONSULTATION
+        ================================== */}
 
-        <a
-          href="#contact"
+        <Link
+          to="/booking"
           className="consult-btn"
           onClick={closeMenu}
         >
           Book Consultation
-        </a>
+        </Link>
 
 
-        {/* =========================
-            HAMBURGER BUTTON
-        ========================== */}
+        {/* =================================
+            HAMBURGER
+        ================================== */}
 
         <button
-          className={`menu-toggle ${menuOpen ? "active" : ""}`}
+          type="button"
+          className={`menu-toggle ${
+            menuOpen ? "active" : ""
+          }`}
           onClick={toggleMenu}
-          aria-label="Toggle menu"
+          aria-label={
+            menuOpen
+              ? "Close navigation menu"
+              : "Open navigation menu"
+          }
           aria-expanded={menuOpen}
         >
-
           <span></span>
           <span></span>
           <span></span>
-
         </button>
 
       </div>
 
 
-      {/* =========================
+      {/* =================================
           MOBILE OVERLAY
-      ========================== */}
+      ================================== */}
 
       {menuOpen && (
         <div
           className="menu-overlay"
           onClick={closeMenu}
+          aria-hidden="true"
         ></div>
       )}
 

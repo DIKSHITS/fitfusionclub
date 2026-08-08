@@ -1,6 +1,6 @@
 import React from "react";
 import "./Blog.css";
-
+import { Link } from "react-router-dom";
 import { FaArrowRight, FaCalendarAlt, FaLeaf } from "react-icons/fa";
 
 import blog1 from "../assets/images/blog1.jpg";
@@ -120,9 +120,9 @@ function Blog() {
 
           </div>
 
-          <button className="cta-btn">
-            Book Free Consultation
-          </button>
+      <Link to="/booking" className="cta-btn">
+  Book Free Consultation
+</Link>
 
         </div>
 

@@ -5,65 +5,159 @@ import aboutImage from "../assets/images/about.png";
 
 function About() {
   return (
- <section id="about" className="about">
+    <section id="about" className="about">
 
       <div className="about-container">
 
-        {/* Left Side */}
+        {/* =================================
+            LEFT SIDE
+        ================================== */}
 
-        <div className="about-image">
+        <div className="about-left">
 
-          <img
-            src={aboutImage}
-            alt="Wellness Expert"
-          />
+          {/* About Heading */}
 
-        </div>
+          <div className="about-top-heading">
 
-        {/* Right Side */}
+            <span className="about-subtitle">
+              ABOUT US
+            </span>
 
-        <div className="about-content">
+            <h2>
+              Your Wellness,
+              <br />
+              <span>Our Priority</span>
+            </h2>
 
-          <span className="about-subtitle">
-            ABOUT US
-          </span>
+          </div>
 
-          <h2>
-            Helping You Build
-            <br />
-            a <span>Healthier</span> Tomorrow
-          </h2>
 
-          <p>
-            We believe true wellness is a balance of mind,
-            body and lifestyle. Our certified wellness experts
-            provide personalized guidance to help you achieve
-            your health goals naturally and sustainably.
-          </p>
+          {/* Image */}
 
-          <div className="about-list">
+          <div className="about-image-wrapper">
 
-            <div className="about-item">
-              ✔ Certified Wellness Coaches
+            <div className="about-image">
+
+              <img
+                src={aboutImage}
+                alt="Fusion Fitness Wellness Centre"
+              />
+
             </div>
 
-            <div className="about-item">
-              ✔ Personalized Nutrition Plans
-            </div>
 
-            <div className="about-item">
-              ✔ 100% Natural Lifestyle Approach
-            </div>
+            {/* Experience Badge */}
 
-            <div className="about-item">
-              ✔ Holistic Health & Fitness Programs
+            <div className="about-badge">
+
+              <strong>10+</strong>
+
+              <span>
+                Years of
+                <br />
+                Wellness
+              </span>
+
             </div>
 
           </div>
 
-          <button className="about-btn">
+        </div>
+
+
+        {/* =================================
+            RIGHT SIDE
+        ================================== */}
+
+        <div className="about-content">
+
+          <span className="content-label">
+            HEALTH • FITNESS • WELLNESS
+          </span>
+
+
+          <h3>
+            Helping You Build
+            <br />
+            a <span>Healthier</span> Tomorrow
+          </h3>
+
+
+          <p>
+            At Fusion Fitness, we believe true wellness comes from
+            creating harmony between your body, mind and lifestyle.
+            Our experienced wellness professionals provide
+            personalized guidance to help you achieve your health
+            goals naturally and sustainably.
+          </p>
+
+
+          {/* Benefits */}
+
+          <div className="about-list">
+
+            <div className="about-item">
+
+              <div className="about-check">
+                ✓
+              </div>
+
+              <span>
+                Certified Wellness Coaches
+              </span>
+
+            </div>
+
+
+            <div className="about-item">
+
+              <div className="about-check">
+                ✓
+              </div>
+
+              <span>
+                Personalized Nutrition Plans
+              </span>
+
+            </div>
+
+
+            <div className="about-item">
+
+              <div className="about-check">
+                ✓
+              </div>
+
+              <span>
+                Natural Lifestyle Approach
+              </span>
+
+            </div>
+
+
+            <div className="about-item">
+
+              <div className="about-check">
+                ✓
+              </div>
+
+              <span>
+                Holistic Health Programs
+              </span>
+
+            </div>
+
+          </div>
+
+
+          {/* Button */}
+
+          <a
+            href="#contact"
+            className="about-btn"
+          >
             Read More About Us
-          </button>
+          </a>
 
         </div>
 

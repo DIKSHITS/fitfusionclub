@@ -49,7 +49,11 @@ function Footer() {
               <FaFacebookF />
             </a>
 
-            <a href="https://instagram.com" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.instagram.com/fusion_fitness24?igsh=MTVsaWxjZW16OG4wYg%3D%3D"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FaInstagram />
             </a>
 

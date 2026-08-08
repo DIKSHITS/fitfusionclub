@@ -5,6 +5,10 @@ import logo from "../assets/images/logo.png";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   const closeMenu = () => {
     setMenuOpen(false);
   };
@@ -12,31 +16,29 @@ const Navbar = () => {
   return (
     <header className="navbar">
 
-      <div className="container">
+      <div className="navbar-container">
 
-        {/* Logo */}
-        <a href="#home" className="logo" onClick={closeMenu}>
+        {/* =========================
+            LOGO
+        ========================== */}
+
+        <a
+          href="#home"
+          className="navbar-logo"
+          onClick={closeMenu}
+        >
           <img
-            className="logo-image"
             src={logo}
             alt="Fusion Fitness Wellness Centre"
           />
         </a>
 
-        {/* Mobile Menu Button */}
-        <button
-          className={`menu-toggle ${menuOpen ? "open" : ""}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation menu"
-          aria-expanded={menuOpen}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
 
-        {/* Navigation */}
-        <nav className={menuOpen ? "nav-open" : ""}>
+        {/* =========================
+            DESKTOP / MOBILE NAV
+        ========================== */}
+
+        <nav className={`navbar-nav ${menuOpen ? "menu-open" : ""}`}>
 
           <ul className="nav-links">
 
@@ -97,9 +99,24 @@ const Navbar = () => {
 
           </ul>
 
+
+          {/* Mobile Consultation Button */}
+
+          <a
+            href="#contact"
+            className="mobile-consult-btn"
+            onClick={closeMenu}
+          >
+            Book Consultation
+          </a>
+
         </nav>
 
-        {/* Consultation Button */}
+
+        {/* =========================
+            DESKTOP BUTTON
+        ========================== */}
+
         <a
           href="#contact"
           className="consult-btn"
@@ -108,7 +125,37 @@ const Navbar = () => {
           Book Consultation
         </a>
 
+
+        {/* =========================
+            HAMBURGER BUTTON
+        ========================== */}
+
+        <button
+          className={`menu-toggle ${menuOpen ? "active" : ""}`}
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+        >
+
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </button>
+
       </div>
+
+
+      {/* =========================
+          MOBILE OVERLAY
+      ========================== */}
+
+      {menuOpen && (
+        <div
+          className="menu-overlay"
+          onClick={closeMenu}
+        ></div>
+      )}
 
     </header>
   );

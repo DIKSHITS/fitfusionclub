@@ -1,0 +1,323 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Poppins",sans-serif;
+    background:#fff;
+}
+
+/* ===========================
+   PROGRAMS SECTION
+=========================== */
+
+.programs{
+    width:100%;
+    padding:110px 0;
+    background:#ffffff;
+}
+
+.programs-container{
+    width:92%;
+    max-width:1400px;
+    margin:auto;
+}
+
+/* Heading */
+
+.program-subtitle{
+    display:block;
+    text-align:center;
+    color:#2E7D32;
+    font-size:18px;
+    font-weight:700;
+    letter-spacing:2px;
+    margin-bottom:15px;
+}
+
+.program-title{
+    text-align:center;
+    font-size:54px;
+    font-weight:700;
+    color:#222;
+    margin-bottom:18px;
+}
+
+.program-description{
+    max-width:720px;
+    margin:auto;
+    text-align:center;
+    font-size:20px;
+    line-height:34px;
+    color:#666;
+    margin-bottom:65px;
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.program-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.program-card{
+
+    background:#fff;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    border:1px solid #ececec;
+
+    transition:.35s;
+
+    cursor:pointer;
+}
+
+.program-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.10);
+}
+
+/* ===========================
+   IMAGE
+=========================== */
+
+.program-image{
+
+    overflow:hidden;
+}
+
+.program-image img{
+
+    width:100%;
+
+    height:250px;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.5s;
+}
+
+.program-card:hover img{
+
+    transform:scale(1.08);
+}
+
+/* ===========================
+   CONTENT
+=========================== */
+
+.program-content{
+
+    padding:28px;
+}
+
+.program-content h3{
+
+    font-size:30px;
+
+    font-weight:600;
+
+    color:#222;
+
+    margin-bottom:15px;
+
+    line-height:40px;
+}
+
+.program-content p{
+
+    font-size:18px;
+
+    color:#666;
+
+    line-height:30px;
+
+    margin-bottom:28px;
+}
+
+/* Learn More */
+
+.program-content a{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+    color:#2E7D32;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.program-content a svg{
+
+    transition:.3s;
+}
+
+.program-content a:hover{
+
+    color:#1B5E20;
+}
+
+.program-content a:hover svg{
+
+    transform:translateX(8px);
+}
+
+/* ===========================
+   LAPTOP
+=========================== */
+
+@media(max-width:1400px){
+
+.program-grid{
+
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+/* ===========================
+   TABLET
+=========================== */
+
+@media(max-width:992px){
+
+.program-title{
+
+    font-size:42px;
+}
+
+.program-description{
+
+    font-size:18px;
+}
+
+.program-grid{
+
+    gap:25px;
+}
+
+.program-content h3{
+
+    font-size:26px;
+}
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.programs{
+
+    padding:80px 0;
+}
+
+.program-grid{
+
+    grid-template-columns:1fr;
+}
+
+.program-title{
+
+    font-size:34px;
+}
+
+.program-description{
+
+    font-size:17px;
+
+    line-height:30px;
+
+    margin-bottom:45px;
+}
+
+.program-content{
+
+    padding:22px;
+}
+
+.program-content h3{
+
+    font-size:24px;
+
+    line-height:34px;
+}
+
+.program-content p{
+
+    font-size:16px;
+
+    line-height:28px;
+}
+
+.program-image img{
+
+    height:220px;
+}
+
+}
+
+/* ===========================
+   SMALL MOBILE
+=========================== */
+
+@media(max-width:480px){
+
+.program-title{
+
+    font-size:30px;
+}
+
+.program-subtitle{
+
+    font-size:16px;
+}
+
+.program-content{
+
+    padding:20px;
+}
+
+.program-content h3{
+
+    font-size:22px;
+}
+
+.program-content a{
+
+    font-size:16px;
+}
+
+}

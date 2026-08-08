@@ -1,0 +1,347 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Poppins",sans-serif;
+    background:#fff;
+    overflow-x:hidden;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+
+    width:100%;
+
+    padding:120px 0;
+
+    background:#ffffff;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.about-container{
+
+    width:92%;
+
+    max-width:1400px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+
+    gap:80px;
+}
+
+/* =========================
+IMAGE
+========================= */
+
+.about-image{
+
+    position:relative;
+}
+
+.about-image img{
+
+    width:100%;
+
+    border-radius:30px;
+
+    display:block;
+
+    box-shadow:0 30px 60px rgba(0,0,0,.08);
+
+    transition:.4s;
+}
+
+.about-image:hover img{
+
+    transform:scale(1.02);
+}
+
+/* =========================
+CONTENT
+========================= */
+
+.about-content{
+
+    max-width:620px;
+}
+
+.about-subtitle{
+
+    display:inline-block;
+
+    color:#2E7D32;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    margin-bottom:20px;
+}
+
+.about-content h2{
+
+    font-size:56px;
+
+    line-height:70px;
+
+    font-weight:700;
+
+    color:#222;
+
+    margin-bottom:25px;
+}
+
+.about-content h2 span{
+
+    color:#2E7D32;
+}
+
+.about-content p{
+
+    font-size:20px;
+
+    line-height:36px;
+
+    color:#666;
+
+    margin-bottom:35px;
+}
+
+/* =========================
+LIST
+========================= */
+
+.about-list{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:18px;
+
+    margin-bottom:40px;
+}
+
+.about-item{
+
+    background:#F7FAF7;
+
+    padding:18px 22px;
+
+    border-radius:14px;
+
+    color:#333;
+
+    font-size:17px;
+
+    font-weight:500;
+
+    border:1px solid #E7EFE7;
+
+    transition:.3s;
+}
+
+.about-item:hover{
+
+    background:#2E7D32;
+
+    color:#fff;
+
+    transform:translateY(-4px);
+}
+
+/* =========================
+BUTTON
+========================= */
+
+.about-btn{
+
+    padding:18px 38px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#2E7D32;
+
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 18px 35px rgba(46,125,50,.25);
+}
+
+.about-btn:hover{
+
+    background:#256728;
+
+    transform:translateY(-3px);
+}
+
+/* =========================
+BACKGROUND SHAPE
+========================= */
+
+.about::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    right:-120px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,#eef8ef 0%,transparent 70%);
+
+    z-index:0;
+}
+
+.about-content,
+.about-image{
+
+    position:relative;
+
+    z-index:2;
+}
+
+/* =========================
+TABLET
+========================= */
+
+@media(max-width:1100px){
+
+.about-container{
+
+    grid-template-columns:1fr;
+
+    gap:60px;
+}
+
+.about-content{
+
+    max-width:100%;
+}
+
+.about-content h2{
+
+    font-size:46px;
+
+    line-height:58px;
+}
+
+.about-image{
+
+    order:-1;
+}
+
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:768px){
+
+.about{
+
+    padding:80px 0;
+}
+
+.about-content h2{
+
+    font-size:34px;
+
+    line-height:46px;
+}
+
+.about-content p{
+
+    font-size:17px;
+
+    line-height:30px;
+}
+
+.about-list{
+
+    grid-template-columns:1fr;
+}
+
+.about-btn{
+
+    width:100%;
+}
+
+.about-image img{
+
+    border-radius:20px;
+}
+
+}
+
+/* =========================
+SMALL MOBILE
+========================= */
+
+@media(max-width:480px){
+
+.about-content h2{
+
+    font-size:30px;
+
+    line-height:40px;
+}
+
+.about-subtitle{
+
+    font-size:16px;
+}
+
+.about-item{
+
+    font-size:15px;
+
+    padding:16px;
+}
+
+.about-btn{
+
+    font-size:16px;
+
+    padding:16px;
+}
+
+}

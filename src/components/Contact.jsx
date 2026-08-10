@@ -1,9 +1,7 @@
-import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
+import React, { useState } from "react";
 import "./Contact.css";
 
 function Contact() {
-  const formRef = useRef(null);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -15,9 +13,7 @@ function Contact() {
   const [statusMessage, setStatusMessage] = useState("");
   const [statusType, setStatusType] = useState("");
 
-  const serviceId = "service_tfty5wb";
-  const templateId = "template_7qe8ujf";
-  const publicKey = "3iOeUTKhe3a8k3vpR";
+  const accessKey = "1913b42c-ead7-4fb2-a959-7f10da27c026";
 
   const handleChange = (e) => {
     if (statusMessage) {
@@ -34,31 +30,27 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!templateId || !publicKey) {
-      setStatusType("error");
-      setStatusMessage(
-        "EmailJS is not configured yet. Add REACT_APP_EMAILJS_TEMPLATE_ID to your environment."
-      );
-      return;
-    }
-
     setIsSending(true);
     setStatusMessage("");
     setStatusType("");
 
     try {
-      await emailjs.send(serviceId, templateId, {
-        name: formData.name,
-        phone: formData.phone,
-        email: formData.email,
-        service: formData.service,
-        message: formData.message,
-      }, publicKey);
+      const formDataPayload = new FormData(e.target);
+      formDataPayload.append("access_key", accessKey);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataPayload,
+      });
+
+      const data = await response.json();
+
+      if (!data.success) {
+        throw new Error("Submission failed");
+      }
 
       setStatusType("success");
-      setStatusMessage(
-        "Your message was sent successfully. Our team will review it and get back to you shortly."
-      );
+      setStatusMessage("Your message was sent successfully. Our team will review it and get back to you shortly.");
 
       setFormData({
         name: "",
@@ -69,9 +61,7 @@ function Contact() {
       });
     } catch (error) {
       setStatusType("error");
-      setStatusMessage(
-        "Something went wrong while sending your message. Please try again."
-      );
+      setStatusMessage("Something went wrong while sending your message. Please try again.");
     } finally {
       setIsSending(false);
     }
@@ -248,7 +238,6 @@ function Contact() {
 
           <form
             className="contact-form"
-            ref={formRef}
             onSubmit={handleSubmit}
           >
 

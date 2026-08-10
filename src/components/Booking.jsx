@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 import "./Booking.css";
 
 function Booking() {
@@ -18,9 +17,7 @@ function Booking() {
   const [statusMessage, setStatusMessage] = useState("");
   const [statusType, setStatusType] = useState("");
 
-  const serviceId = "service_tfty5wb";
-  const templateId = "template_7qe8ujf";
-  const publicKey = "3iOeUTKhe3a8k3vpR";
+  const accessKey = "1913b42c-ead7-4fb2-a959-7f10da27c026";
 
   /* =========================================
      AVAILABLE TIME SLOTS
@@ -98,26 +95,26 @@ function Booking() {
       year: "numeric",
     });
 
-    if (!templateId || !publicKey) {
-      setStatusType("error");
-      setStatusMessage("EmailJS is not configured. Please provide template and public key.");
-      return;
-    }
-
     setIsSending(true);
     setStatusMessage("");
     setStatusType("");
 
     try {
-      await emailjs.send(serviceId, templateId, {
-        name: formData.name,
-        phone: formData.phone,
-        email: formData.email,
-        service: formData.service,
-        message: formData.message,
-        date: formattedDate,
-        time: selectedTime,
-      }, publicKey);
+      const formDataPayload = new FormData(e.target);
+      formDataPayload.append("access_key", accessKey);
+      formDataPayload.append("date", formattedDate);
+      formDataPayload.append("time", selectedTime);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataPayload,
+      });
+
+      const data = await response.json();
+
+      if (!data.success) {
+        throw new Error("Submission failed");
+      }
 
       setStatusType("success");
       setStatusMessage(`Consultation booked successfully for ${formattedDate} at ${selectedTime}.`);

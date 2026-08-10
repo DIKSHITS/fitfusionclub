@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import "./Booking.css";
 
 function Booking() {
@@ -12,7 +12,6 @@ function Booking() {
     service: "",
     message: "",
   });
-  const formRef = useRef(null);
   const [isSending, setIsSending] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
   const [statusType, setStatusType] = useState("");
@@ -252,7 +251,6 @@ function Booking() {
 
           <form
             className="booking-form"
-            ref={formRef}
             onSubmit={handleSubmit}
           >
 

@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import "./Contact.css";
 
 function Contact() {
+  const formRef = useRef(null);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -9,28 +11,70 @@ function Contact() {
     service: "",
     message: "",
   });
+  const [isSending, setIsSending] = useState(false);
+  const [statusMessage, setStatusMessage] = useState("");
+  const [statusType, setStatusType] = useState("");
+
+  const serviceId = "service_tfty5wb";
+  const templateId = "template_7qe8ujf";
+  const publicKey = "3iOeUTKhe3a8k3vpR";
 
   const handleChange = (e) => {
+    if (statusMessage) {
+      setStatusMessage("");
+      setStatusType("");
+    }
+
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    alert(
-      "Thank you for contacting Fusion Fitness! We will get back to you soon."
-    );
+    if (!templateId || !publicKey) {
+      setStatusType("error");
+      setStatusMessage(
+        "EmailJS is not configured yet. Add REACT_APP_EMAILJS_TEMPLATE_ID to your environment."
+      );
+      return;
+    }
 
-    setFormData({
-      name: "",
-      phone: "",
-      email: "",
-      service: "",
-      message: "",
-    });
+    setIsSending(true);
+    setStatusMessage("");
+    setStatusType("");
+
+    try {
+      await emailjs.send(serviceId, templateId, {
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        service: formData.service,
+        message: formData.message,
+      }, publicKey);
+
+      setStatusType("success");
+      setStatusMessage(
+        "Your message was sent successfully. Our team will review it and get back to you shortly."
+      );
+
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        service: "",
+        message: "",
+      });
+    } catch (error) {
+      setStatusType("error");
+      setStatusMessage(
+        "Something went wrong while sending your message. Please try again."
+      );
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -204,8 +248,15 @@ function Contact() {
 
           <form
             className="contact-form"
+            ref={formRef}
             onSubmit={handleSubmit}
           >
+
+            {statusMessage ? (
+              <div className={`form-status ${statusType}`} role="status" aria-live="polite">
+                {statusMessage}
+              </div>
+            ) : null}
 
 
             {/* Name + Phone */}
@@ -345,8 +396,9 @@ function Contact() {
             <button
               type="submit"
               className="contact-submit"
+              disabled={isSending}
             >
-              Book Free Consultation
+              {isSending ? "Sending..." : "Book Free Consultation"}
               <span>→</span>
             </button>
 

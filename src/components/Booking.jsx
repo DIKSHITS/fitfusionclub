@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import "./Booking.css";
 
 function Booking() {
@@ -12,6 +13,14 @@ function Booking() {
     service: "",
     message: "",
   });
+  const formRef = useRef(null);
+  const [isSending, setIsSending] = useState(false);
+  const [statusMessage, setStatusMessage] = useState("");
+  const [statusType, setStatusType] = useState("");
+
+  const serviceId = "service_tfty5wb";
+  const templateId = "template_7qe8ujf";
+  const publicKey = "3iOeUTKhe3a8k3vpR";
 
   /* =========================================
      AVAILABLE TIME SLOTS
@@ -31,6 +40,11 @@ function Booking() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    if (statusMessage) {
+      setStatusMessage("");
+      setStatusType("");
+    }
 
     setFormData((prev) => ({
       ...prev,
@@ -61,16 +75,18 @@ function Booking() {
      SUBMIT
   ========================================= */
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!selectedDate) {
-      alert("Please select a date.");
+      setStatusType("error");
+      setStatusMessage("Please select a date.");
       return;
     }
 
     if (!selectedTime) {
-      alert("Please select a time slot.");
+      setStatusType("error");
+      setStatusMessage("Please select a time slot.");
       return;
     }
 
@@ -82,25 +98,47 @@ function Booking() {
       year: "numeric",
     });
 
-    alert(
-      `Consultation booked successfully!\n\n` +
-      `Name: ${formData.name}\n` +
-      `Service: ${formData.service}\n` +
-      `Date: ${formattedDate}\n` +
-      `Time: ${selectedTime}`
-    );
+    if (!templateId || !publicKey) {
+      setStatusType("error");
+      setStatusMessage("EmailJS is not configured. Please provide template and public key.");
+      return;
+    }
 
-    // Reset form
-    setFormData({
-      name: "",
-      phone: "",
-      email: "",
-      service: "",
-      message: "",
-    });
+    setIsSending(true);
+    setStatusMessage("");
+    setStatusType("");
 
-    setSelectedDate("");
-    setSelectedTime("");
+    try {
+      await emailjs.send(serviceId, templateId, {
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        service: formData.service,
+        message: formData.message,
+        date: formattedDate,
+        time: selectedTime,
+      }, publicKey);
+
+      setStatusType("success");
+      setStatusMessage(`Consultation booked successfully for ${formattedDate} at ${selectedTime}.`);
+
+      // Reset form
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        service: "",
+        message: "",
+      });
+
+      setSelectedDate("");
+      setSelectedTime("");
+    } catch (err) {
+      setStatusType("error");
+      setStatusMessage("Something went wrong while sending your booking. Please try again.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   /* =========================================
@@ -217,8 +255,15 @@ function Booking() {
 
           <form
             className="booking-form"
+            ref={formRef}
             onSubmit={handleSubmit}
           >
+
+            {statusMessage ? (
+              <div className={`form-status ${statusType}`} role="status" aria-live="polite">
+                {statusMessage}
+              </div>
+            ) : null}
 
             {/* FORM TITLE */}
 
@@ -524,14 +569,12 @@ function Booking() {
             <button
               type="submit"
               className="booking-submit"
+              disabled={isSending}
             >
-
-              Confirm Consultation
-
+              {isSending ? "Sending..." : "Confirm Consultation"}
               <span>
                 →
               </span>
-
             </button>
 
 

@@ -16,6 +16,7 @@ import Blog from "./components/Blog";
 import Contact from "./components/Contact";
 import Booking from "./components/Booking";
 import Footer from "./components/Footer";
+import BeforeAfter from "./components/BeforeAfter";
 
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -115,6 +116,27 @@ function BookingPage() {
 
 
 /* =========================================
+   BEFORE / AFTER PAGE
+========================================= */
+
+function BeforeAfterPage() {
+  return (
+    <>
+      <Navbar />
+
+      <main>
+        <BeforeAfter />
+      </main>
+
+      <Footer />
+
+      <WhatsAppButton />
+    </>
+  );
+}
+
+
+/* =========================================
    APP
 ========================================= */
 
@@ -141,6 +163,11 @@ function App() {
         <Route
           path="/contact"
           element={<ContactPage />}
+        />
+
+        <Route
+          path="/before-after"
+          element={<BeforeAfterPage />}
         />
 
 

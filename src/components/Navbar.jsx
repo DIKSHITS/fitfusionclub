@@ -115,6 +115,23 @@ const Navbar = () => {
             </li>
 
 
+            {/* BEFORE / AFTER */}
+
+            <li>
+              <Link
+                to="/before-after"
+                className={
+                  location.pathname === "/before-after"
+                    ? "active"
+                    : ""
+                }
+                onClick={closeMenu}
+              >
+                Transformation
+              </Link>
+            </li>
+
+
             {/* CONTACT PAGE */}
 
             <li>

@@ -139,8 +139,8 @@ function Contact() {
               <div>
                 <span>Call Us</span>
 
-                <a href="tel:+919999999999">
-                  +91 99999 99999
+                <a href="tel:+919007089970">
+                  +91 9007089970
                 </a>
               </div>
 
@@ -158,8 +158,8 @@ function Contact() {
               <div>
                 <span>Email Us</span>
 
-                <a href="mailto:info@fusionfitness.com">
-                  info@fusionfitness.com
+                <a href="mailto:fusionfitness365@gmail.com">
+                  fusionfitness365@gmail.com
                 </a>
               </div>
 
@@ -178,9 +178,11 @@ function Contact() {
                 <span>Visit Us</span>
 
                 <p>
-                  Fusion Fitness Wellness Centre,
+                  1C / Kustia Rd, Picnic Garden,
                   <br />
-                  Kolkata, West Bengal, India
+                  opposite merlin iland building,
+                  <br />
+                  Tiljala, Kolkata, West Bengal 700039, India
                 </p>
               </div>
 
@@ -419,11 +421,15 @@ function Contact() {
           </h3>
 
           <p>
-            Kolkata, West Bengal, India
+            1C / Kustia Rd, Picnic Garden,
+            <br />
+            opposite merlin iland building,
+            <br />
+            Tiljala, Kolkata, West Bengal 700039, India
           </p>
 
           <a
-            href="https://www.google.com/maps"
+            href="https://share.google/oPGQlDsznu4NTmoEr"
             target="_blank"
             rel="noopener noreferrer"
           >

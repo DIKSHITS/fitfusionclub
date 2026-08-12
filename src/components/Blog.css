@@ -120,24 +120,40 @@
     color:#2E7D32;
 }
 
-.blog-content a{
+.read-more-btn{
     display:inline-flex;
     align-items:center;
     gap:10px;
-    text-decoration:none;
+    border:none;
+    background:none;
     color:#2E7D32;
     font-size:18px;
-    font-weight:600;
+    font-weight:700;
+    cursor:pointer;
+    padding:0;
     transition:.3s;
 }
 
-.blog-content a:hover{
+.read-more-btn:hover{
     color:#1B5E20;
 }
 
-.blog-content a:hover svg{
+.read-more-btn:hover svg{
     transform:translateX(8px);
     transition:.3s;
+}
+
+.tip-list{
+    margin-top:18px;
+    padding-left:20px;
+    color:#333;
+    font-size:15px;
+    line-height:1.9;
+}
+
+.tip-list li{
+    margin-bottom:8px;
+    list-style: disc;
 }
 
 /* ===========================

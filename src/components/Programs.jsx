@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Programs.css";
 
 import { FaArrowRight } from "react-icons/fa";
@@ -14,30 +14,56 @@ const programs = [
     title: "Weight Loss Program",
     description:
       "Healthy nutrition and customized fitness plans to help you achieve sustainable weight loss.",
+    points: [
+      "Personalized nutrition guidance",
+      "Calorie-smart meal planning",
+      "Workout routine for fat burn",
+      "Weekly progress tracking",
+    ],
   },
   {
     image: program2,
     title: "Weight Gain Program",
     description:
       "Build healthy muscle mass through personalized nutrition and strength training guidance.",
+    points: [
+      "High-protein meal plan",
+      "Strength-focused training",
+      "Muscle recovery support",
+      "Body composition improvement",
+    ],
   },
   {
     image: program3,
     title: "Women's Wellness",
     description:
       "Lifestyle and nutrition programs designed to support hormonal balance and overall wellbeing.",
+    points: [
+      "Hormone-friendly nutrition",
+      "Stress and energy support",
+      "Fitness for women’s health",
+      "Lifestyle habit coaching",
+    ],
   },
   {
     image: program4,
     title: "Detox & Lifestyle",
     description:
       "Natural detox plans and healthy habits to refresh your body and improve your daily energy.",
+    points: [
+      "Detoxifying food habits",
+      "Improved hydration routine",
+      "Daily wellness tracking",
+      "Better energy and digestion",
+    ],
   },
 ];
 
 function Programs() {
+  const [expandedIndex, setExpandedIndex] = useState(null);
+
   return (
-<section id="programs" className="programs">
+    <section id="programs" className="programs">
 
       <div className="programs-container">
 
@@ -58,7 +84,14 @@ function Programs() {
 
           {programs.map((program, index) => (
 
-            <div className="program-card" key={index}>
+            <div
+              className={
+                program.title === "Weight Loss Program"
+                  ? "program-card featured"
+                  : "program-card"
+              }
+              key={index}
+            >
 
               <div className="program-image">
 
@@ -75,10 +108,26 @@ function Programs() {
 
                 <p>{program.description}</p>
 
-                <a href="/">
-                  Learn More
+                <button
+                  type="button"
+                  className="learn-more-btn"
+                  onClick={() =>
+                    setExpandedIndex(
+                      expandedIndex === index ? null : index
+                    )
+                  }
+                >
+                  {expandedIndex === index ? "Hide Details" : "Learn More"}
                   <FaArrowRight />
-                </a>
+                </button>
+
+                {expandedIndex === index && (
+                  <ul className="program-points">
+                    {program.points.map((point, pointIndex) => (
+                      <li key={pointIndex}>{point}</li>
+                    ))}
+                  </ul>
+                )}
 
               </div>
 

@@ -11,24 +11,21 @@ function Hero() {
       className="hero"
       aria-labelledby="hero-title"
     >
-
       {/* =====================================================
-          CRITICAL HERO IMAGE
-          - Responsive image for mobile/desktop
-          - High priority for LCP
-          - Not lazy loaded
-          - Explicit dimensions prevent CLS
+          HERO BACKGROUND IMAGE
+          - Desktop + mobile responsive
+          - Eager loading
+          - High priority
+          - No lazy loading
       ====================================================== */}
-      <picture className="hero-picture">
 
-        {/* Mobile image */}
+      <picture className="hero-picture">
         <source
           media="(max-width: 768px)"
           srcSet={heroMobileImage}
           type="image/webp"
         />
 
-        {/* Desktop image */}
         <img
           className="hero-image"
           src={heroImage}
@@ -40,20 +37,22 @@ function Hero() {
           decoding="async"
           aria-hidden="true"
         />
-
       </picture>
 
       {/* =====================================================
           DARK OVERLAY
       ====================================================== */}
+
       <div
         className="hero-overlay"
         aria-hidden="true"
       />
 
       {/* =====================================================
-          DECORATIVE GREEN GLOW
+          DECORATIVE GLOW
+          Hidden on mobile for better performance
       ====================================================== */}
+
       <div
         className="hero-glow"
         aria-hidden="true"
@@ -62,20 +61,32 @@ function Hero() {
       {/* =====================================================
           HERO CONTENT
       ====================================================== */}
+
       <div className="hero-container">
+
         <div className="hero-content">
 
           {/* =================================================
               TAG
           ================================================== */}
+
           <span className="hero-tag">
-            <span aria-hidden="true">🌿</span>
-            <span>Live Healthy. Live Happy.</span>
+            <span
+              className="hero-tag-icon"
+              aria-hidden="true"
+            >
+              🌿
+            </span>
+
+            <span>
+              Live Healthy. Live Happy.
+            </span>
           </span>
 
           {/* =================================================
               MAIN HEADING
           ================================================== */}
+
           <h1 id="hero-title">
             Your Wellness,
             <br />
@@ -85,25 +96,34 @@ function Hero() {
           {/* =================================================
               DESCRIPTION
           ================================================== */}
-          <p>
+
+          <p className="hero-description">
             Personalized health &amp; wellness solutions to help
             you achieve a balanced and healthier lifestyle with
             expert guidance.
           </p>
 
           {/* =================================================
-              PRIMARY CTA
+              CTA
           ================================================== */}
+
           <a
             href="#contact"
             className="hero-btn"
           >
-            Book Free Consultation
+            <span>Book Free Consultation</span>
+            <span
+              className="hero-btn-arrow"
+              aria-hidden="true"
+            >
+              →
+            </span>
           </a>
 
           {/* =================================================
               FEATURES
           ================================================== */}
+
           <div className="hero-features">
 
             <div className="feature">
@@ -114,7 +134,9 @@ function Hero() {
                 ✓
               </span>
 
-              <span>Expert Guidance</span>
+              <span>
+                Expert Guidance
+              </span>
             </div>
 
             <div className="feature">
@@ -125,7 +147,9 @@ function Hero() {
                 🍃
               </span>
 
-              <span>Personalized Plan</span>
+              <span>
+                Personalized Plan
+              </span>
             </div>
 
             <div className="feature">
@@ -136,14 +160,16 @@ function Hero() {
                 🌱
               </span>
 
-              <span>100% Natural</span>
+              <span>
+                100% Natural
+              </span>
             </div>
 
           </div>
 
         </div>
-      </div>
 
+      </div>
     </section>
   );
 }

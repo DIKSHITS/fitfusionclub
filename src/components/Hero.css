@@ -1,252 +1,254 @@
-/* =====================================================
-   HERO — PERFORMANCE OPTIMIZED
-   ===================================================== */
-
-/* =====================================================
-   GLOBAL
-   ===================================================== */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  overflow-x: hidden;
-}
-
-
-/* =====================================================
+/* =========================================================
    HERO
-   ===================================================== */
+========================================================= */
 
 .hero {
   position: relative;
-  width: 100%;
-  min-height: calc(100vh - 90px);
 
-  display: flex;
-  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
 
   overflow: hidden;
-  padding: 90px 0;
 
-  background: #0f1a12;
+  background: #102218;
+
+  color: #ffffff;
 
   isolation: isolate;
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO PICTURE
-   ===================================================== */
+========================================================= */
 
 .hero-picture {
   position: absolute;
+
   inset: 0;
+
+  display: block;
 
   width: 100%;
   height: 100%;
 
-  display: block;
-
   z-index: -3;
+
+  pointer-events: none;
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO IMAGE
-   Critical LCP image
-   ===================================================== */
+========================================================= */
 
 .hero-image {
-  position: absolute;
-  inset: 0;
+  display: block;
 
   width: 100%;
   height: 100%;
 
-  display: block;
-
   object-fit: cover;
+
   object-position: center center;
 
-  z-index: -3;
+  /*
+    Avoid unnecessary GPU work.
+  */
+  transform: none;
+
+  backface-visibility: hidden;
 }
 
 
-/* =====================================================
-   DARK IMAGE OVERLAY
-   Use gradient instead of expensive effects
-   ===================================================== */
+/* =========================================================
+   DARK OVERLAY
+========================================================= */
 
 .hero-overlay {
   position: absolute;
+
   inset: 0;
 
-  background: linear-gradient(
-    90deg,
-    rgba(10, 20, 12, 0.82) 0%,
-    rgba(10, 20, 12, 0.62) 38%,
-    rgba(10, 20, 12, 0.30) 72%,
-    rgba(10, 20, 12, 0.12) 100%
-  );
+  z-index: -2;
 
   pointer-events: none;
 
-  z-index: -2;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 22, 13, 0.88) 0%,
+      rgba(7, 22, 13, 0.70) 42%,
+      rgba(7, 22, 13, 0.35) 100%
+    );
 }
 
 
-/* =====================================================
+/* =========================================================
    GREEN GLOW
-   PERFORMANCE OPTIMIZED
-   ===================================================== */
+========================================================= */
 
 .hero-glow {
   position: absolute;
 
-  right: -120px;
-  top: -100px;
+  width: 420px;
+  height: 420px;
 
-  width: 360px;
-  height: 360px;
+  right: -180px;
+  bottom: -180px;
+
+  z-index: -1;
 
   border-radius: 50%;
 
-  /*
-    No filter: blur().
-    The previous 100px blur creates additional
-    rendering work on mobile devices.
-  */
-  background: radial-gradient(
-    circle,
-    rgba(130, 195, 120, 0.18) 0%,
-    rgba(130, 195, 120, 0.08) 40%,
-    rgba(130, 195, 120, 0) 72%
-  );
+  background: rgba(76, 175, 80, 0.16);
+
+  filter: blur(80px);
 
   pointer-events: none;
-
-  z-index: -1;
 }
 
 
-/* =====================================================
-   CONTAINER
-   ===================================================== */
+/* =========================================================
+   HERO CONTAINER
+========================================================= */
 
 .hero-container {
   position: relative;
 
-  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
 
-  width: 92%;
-  max-width: 1450px;
+  min-height: 100vh;
+  min-height: 100svh;
 
   margin: 0 auto;
 
+  padding:
+    120px 24px 70px;
+
   display: flex;
+
   align-items: center;
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO CONTENT
-   ===================================================== */
+========================================================= */
 
 .hero-content {
   width: 100%;
-  max-width: 690px;
 
-  padding: 25px 0;
+  max-width: 650px;
 }
 
 
-/* =====================================================
+/* =========================================================
    TAG
-   ===================================================== */
+========================================================= */
 
 .hero-tag {
   display: inline-flex;
 
   align-items: center;
-  gap: 9px;
 
-  padding: 10px 17px;
-  margin-bottom: 25px;
+  gap: 8px;
+
+  margin-bottom: 20px;
+
+  padding:
+    8px 14px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.22);
 
   border-radius: 999px;
 
-  /*
-    Removed backdrop-filter.
-    Background remains visually similar but
-    significantly cheaper to render.
-  */
-  background: rgba(255, 255, 255, 0.14);
+  background:
+    rgba(255, 255, 255, 0.08);
 
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #d9f5dc;
 
-  color: #f4fff5;
+  font-size: 14px;
 
-  font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
+
+  line-height: 1.4;
 }
 
 
-/* =====================================================
+/* =========================================================
+   TAG ICON
+========================================================= */
+
+.hero-tag-icon {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
    HEADING
-   ===================================================== */
+========================================================= */
 
-.hero-content h1 {
-  margin: 0 0 25px;
+.hero h1 {
+  margin: 0;
 
-  color: #ffffff;
+  max-width: 700px;
 
-  font-size: clamp(3rem, 6vw, 5.2rem);
+  font-size:
+    clamp(44px, 6vw, 76px);
 
-  line-height: 1.05;
+  line-height: 1.04;
+
+  letter-spacing: -2.5px;
 
   font-weight: 800;
 
-  letter-spacing: -0.045em;
-
-  /*
-    Prevent unnecessary text rendering changes.
-  */
   text-wrap: balance;
 }
 
-.hero-content h1 span {
-  color: #b7f0bf;
+
+/* =========================================================
+   GREEN HEADING
+========================================================= */
+
+.hero h1 span {
+  color: #73c979;
 }
 
 
-/* =====================================================
+/* =========================================================
    DESCRIPTION
-   ===================================================== */
+========================================================= */
 
-.hero-content p {
+.hero-description {
   max-width: 570px;
 
-  margin: 0 0 32px;
+  margin:
+    22px 0 30px;
 
-  color: rgba(255, 255, 255, 0.86);
+  color:
+    rgba(255, 255, 255, 0.86);
 
-  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-size: 17px;
 
-  line-height: 1.8;
+  line-height: 1.7;
 
   font-weight: 400;
 }
 
 
-/* =====================================================
-   BUTTON
-   ===================================================== */
+/* =========================================================
+   CTA BUTTON
+========================================================= */
 
 .hero-btn {
   display: inline-flex;
@@ -254,624 +256,415 @@ body {
   align-items: center;
   justify-content: center;
 
-  min-height: 58px;
+  gap: 10px;
 
-  padding: 17px 34px;
+  min-height: 52px;
 
-  border: none;
-  border-radius: 16px;
+  padding:
+    0 22px;
 
-  background: linear-gradient(
-    135deg,
-    #2e7d32 0%,
-    #1f6a28 100%
-  );
+  border: 0;
+
+  border-radius: 12px;
+
+  background: #4caf50;
 
   color: #ffffff;
 
   text-decoration: none;
 
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
+  font-size: 15px;
+
   font-weight: 700;
+
+  line-height: 1;
 
   cursor: pointer;
 
-  box-shadow: 0 12px 28px rgba(46, 125, 50, 0.24);
-
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
+
+
+/* =========================================================
+   CTA ARROW
+========================================================= */
+
+.hero-btn-arrow {
+  font-size: 19px;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   CTA HOVER
+========================================================= */
 
 .hero-btn:hover {
+  background: #43a047;
+
   transform: translateY(-2px);
-
-  background: linear-gradient(
-    135deg,
-    #388e3c,
-    #1b5e20
-  );
-
-  box-shadow: 0 16px 32px rgba(46, 125, 50, 0.30);
-
-  color: #ffffff;
-}
-
-.hero-btn:active {
-  transform: translateY(0);
 }
 
 
-/* =====================================================
+/* =========================================================
    FEATURES
-   ===================================================== */
+========================================================= */
 
 .hero-features {
   display: flex;
 
   align-items: center;
 
-  gap: 14px;
-
   flex-wrap: wrap;
 
-  margin-top: 30px;
+  gap: 18px 24px;
+
+  margin-top: 34px;
 }
 
 
-/* =====================================================
+/* =========================================================
    FEATURE
-   ===================================================== */
+========================================================= */
 
 .feature {
-  display: inline-flex;
+  display: flex;
 
   align-items: center;
 
-  gap: 10px;
+  gap: 8px;
 
-  min-height: 62px;
+  color:
+    rgba(255, 255, 255, 0.90);
 
-  padding: 9px 16px 9px 9px;
+  font-size: 14px;
 
-  border-radius: 999px;
+  font-weight: 500;
 
-  background: rgba(255, 255, 255, 0.13);
-
-  border: 1px solid rgba(255, 255, 255, 0.18);
-
-  /*
-    Removed backdrop-filter.
-  */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+  line-height: 1.4;
 }
 
 
-/* =====================================================
+/* =========================================================
    FEATURE ICON
-   ===================================================== */
+========================================================= */
 
 .feature-icon {
-  flex-shrink: 0;
-
-  width: 43px;
-  height: 43px;
-
-  border-radius: 50%;
-
-  display: flex;
+  display: inline-flex;
 
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(
-    135deg,
-    rgba(183, 240, 191, 0.95),
-    rgba(227, 255, 230, 0.85)
-  );
+  width: 26px;
+  height: 26px;
 
-  color: #1f6a28;
+  flex: 0 0 26px;
 
-  font-size: 16px;
+  border-radius: 50%;
 
-  font-weight: 800;
+  background:
+    rgba(76, 175, 80, 0.18);
+
+  color: #8ee493;
+
+  font-size: 13px;
+
+  line-height: 1;
 }
 
 
-/* =====================================================
-   FEATURE TEXT
-   ===================================================== */
-
-.feature span {
-  color: rgba(255, 255, 255, 0.92);
-
-  font-size: 14px;
-
-  font-weight: 600;
-
-  white-space: nowrap;
-}
-
-
-/* =====================================================
-   LARGE DESKTOP
-   ===================================================== */
-
-@media (min-width: 1600px) {
-
-  .hero {
-    min-height: 820px;
-
-    padding: 110px 0;
-  }
-
-  .hero-container {
-    width: 90%;
-  }
-
-  .hero-content {
-    max-width: 760px;
-  }
-
-  .hero-content h1 {
-    font-size: 5.6rem;
-  }
-
-  .hero-content p {
-    font-size: 1.15rem;
-
-    max-width: 620px;
-  }
-
-}
-
-
-/* =====================================================
-   LAPTOP
-   ===================================================== */
-
-@media (max-width: 1200px) {
-
-  .hero {
-    min-height: calc(100vh - 82px);
-
-    padding: 75px 0;
-  }
-
-  .hero-container {
-    width: 94%;
-  }
-
-  .hero-content {
-    max-width: 620px;
-  }
-
-  .hero-content h1 {
-    font-size: clamp(
-      2.8rem,
-      5.5vw,
-      4.5rem
-    );
-  }
-
-  .hero-features {
-    gap: 10px;
-  }
-
-  .feature {
-    padding-right: 13px;
-  }
-
-  .feature span {
-    font-size: 13px;
-  }
-
-}
-
-
-/* =====================================================
+/* =========================================================
    TABLET
-   ===================================================== */
+========================================================= */
 
-@media (max-width: 992px) {
-
-  .hero {
-    min-height: auto;
-
-    padding: 80px 0;
-  }
-
-  .hero-overlay {
-    background: linear-gradient(
-      90deg,
-      rgba(10, 20, 12, 0.78),
-      rgba(10, 20, 12, 0.45)
-    );
-  }
+@media (max-width: 900px) {
 
   .hero-container {
-    width: 92%;
+    padding:
+      110px 22px 60px;
   }
 
   .hero-content {
-    max-width: 650px;
+    max-width: 600px;
   }
 
-  .hero-content h1 {
-    font-size: clamp(
-      2.8rem,
-      7vw,
-      4.4rem
-    );
-  }
+  .hero h1 {
+    font-size:
+      clamp(42px, 8vw, 64px);
 
-  .hero-content p {
-    max-width: 580px;
-
-    font-size: 1rem;
-  }
-
-  .hero-features {
-    max-width: 650px;
+    letter-spacing: -2px;
   }
 
 }
 
 
-/* =====================================================
-   SMALL TABLET
-   ===================================================== */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 768px) {
 
   .hero {
-    min-height: auto;
-
-    padding: 70px 0 60px;
+    min-height: 100svh;
   }
 
-  /*
-    Mobile image position.
-  */
+
+  /* -------------------------------------------------------
+     MOBILE IMAGE
+  ------------------------------------------------------- */
+
   .hero-image {
-    object-position: 62% center;
+    object-position: center center;
   }
+
+
+  /* -------------------------------------------------------
+     MOBILE OVERLAY
+  ------------------------------------------------------- */
 
   .hero-overlay {
-    background: linear-gradient(
-      90deg,
-      rgba(8, 18, 10, 0.84) 0%,
-      rgba(8, 18, 10, 0.62) 55%,
-      rgba(8, 18, 10, 0.38) 100%
-    );
+    background:
+      linear-gradient(
+        180deg,
+        rgba(7, 20, 12, 0.76) 0%,
+        rgba(7, 20, 12, 0.64) 45%,
+        rgba(7, 20, 12, 0.84) 100%
+      );
   }
 
-  /*
-    No blur filter on mobile.
-    This saves GPU rendering work.
-  */
+
+  /* -------------------------------------------------------
+     REMOVE GLOW
+     Reduces expensive blur painting.
+  ------------------------------------------------------- */
+
   .hero-glow {
-    width: 280px;
-    height: 280px;
-
-    right: -90px;
-    top: -70px;
-
-    background: radial-gradient(
-      circle,
-      rgba(130, 195, 120, 0.14) 0%,
-      rgba(130, 195, 120, 0.06) 40%,
-      rgba(130, 195, 120, 0) 72%
-    );
+    display: none;
   }
+
+
+  /* -------------------------------------------------------
+     CONTAINER
+  ------------------------------------------------------- */
 
   .hero-container {
-    width: 92%;
+    min-height: 100svh;
+
+    padding:
+      105px 20px 45px;
+
+    align-items: center;
+
+    justify-content: center;
   }
 
+
+  /* -------------------------------------------------------
+     CONTENT
+  ------------------------------------------------------- */
+
   .hero-content {
+    width: 100%;
+
+    max-width: 560px;
+
+    text-align: center;
+  }
+
+
+  /* -------------------------------------------------------
+     TAG
+  ------------------------------------------------------- */
+
+  .hero-tag {
+    margin-bottom: 16px;
+
+    padding:
+      7px 12px;
+
+    font-size: 12px;
+  }
+
+
+  /* -------------------------------------------------------
+     HEADING
+  ------------------------------------------------------- */
+
+  .hero h1 {
     max-width: 100%;
 
-    padding: 10px 0;
+    font-size:
+      clamp(38px, 11vw, 52px);
+
+    line-height: 1.05;
+
+    letter-spacing: -1.5px;
   }
 
-  .hero-tag {
-    font-size: 14px;
 
-    padding: 9px 14px;
+  /* -------------------------------------------------------
+     DESCRIPTION
+  ------------------------------------------------------- */
 
-    margin-bottom: 20px;
-  }
+  .hero-description {
+    max-width: 500px;
 
-  .hero-content h1 {
-    font-size: clamp(
-      2.5rem,
-      8vw,
-      3.8rem
-    );
-
-    line-height: 1.08;
-
-    letter-spacing: -0.035em;
-
-    margin-bottom: 20px;
-  }
-
-  .hero-content p {
-    max-width: 600px;
-
-    font-size: 0.98rem;
-
-    line-height: 1.7;
-
-    margin-bottom: 27px;
-  }
-
-  .hero-btn {
-    min-height: 54px;
-
-    padding: 15px 27px;
+    margin:
+      18px auto 26px;
 
     font-size: 15px;
+
+    line-height: 1.6;
   }
 
-  .hero-features {
-    gap: 10px;
 
-    margin-top: 25px;
-  }
-
-  .feature {
-    min-height: 57px;
-
-    padding: 7px 14px 7px 7px;
-  }
-
-  .feature-icon {
-    width: 40px;
-    height: 40px;
-
-    font-size: 14px;
-  }
-
-  .feature span {
-    font-size: 13px;
-  }
-
-}
-
-
-/* =====================================================
-   MOBILE
-   ===================================================== */
-
-@media (max-width: 576px) {
-
-  .hero {
-    padding: 55px 0 48px;
-  }
-
-  .hero-image {
-    object-position: 60% center;
-  }
-
-  .hero-container {
-    width: 90%;
-  }
-
-  .hero-content {
-    padding: 0;
-  }
-
-  .hero-tag {
-    font-size: 12.5px;
-
-    padding: 8px 12px;
-
-    margin-bottom: 18px;
-  }
-
-  .hero-content h1 {
-    font-size: clamp(
-      2.15rem,
-      10vw,
-      3rem
-    );
-
-    line-height: 1.1;
-
-    margin-bottom: 18px;
-  }
-
-  .hero-content p {
-    font-size: 0.9rem;
-
-    line-height: 1.7;
-
-    margin-bottom: 24px;
-  }
+  /* -------------------------------------------------------
+     CTA
+  ------------------------------------------------------- */
 
   .hero-btn {
     width: 100%;
 
     min-height: 52px;
 
-    padding: 14px 18px;
+    padding:
+      0 18px;
 
-    border-radius: 13px;
-
-    font-size: 14px;
+    border-radius: 11px;
   }
+
+
+  /* -------------------------------------------------------
+     FEATURES
+  ------------------------------------------------------- */
 
   .hero-features {
-    width: 100%;
+    justify-content: center;
 
-    flex-direction: column;
+    gap:
+      12px 18px;
 
-    align-items: stretch;
-
-    gap: 9px;
-
-    margin-top: 22px;
+    margin-top: 26px;
   }
+
+
+  /* -------------------------------------------------------
+     FEATURE
+  ------------------------------------------------------- */
 
   .feature {
-    width: 100%;
+    gap: 6px;
 
-    min-height: 54px;
-
-    justify-content: flex-start;
-
-    border-radius: 15px;
-
-    padding: 7px 12px;
+    font-size: 12px;
   }
+
+
+  /* -------------------------------------------------------
+     FEATURE ICON
+  ------------------------------------------------------- */
 
   .feature-icon {
-    width: 38px;
-    height: 38px;
+    width: 24px;
+    height: 24px;
 
-    font-size: 14px;
-  }
+    flex-basis: 24px;
 
-  .feature span {
-    font-size: 13px;
-  }
-
-}
-
-
-/* =====================================================
-   SMALL PHONE
-   ===================================================== */
-
-@media (max-width: 400px) {
-
-  .hero {
-    padding: 48px 0 40px;
-  }
-
-  .hero-image {
-    object-position: 58% center;
-  }
-
-  .hero-container {
-    width: 90%;
-  }
-
-  .hero-tag {
-    font-size: 11.5px;
-
-    padding: 7px 10px;
-  }
-
-  .hero-content h1 {
-    font-size: 2rem;
-
-    line-height: 1.1;
-  }
-
-  .hero-content p {
-    font-size: 0.86rem;
-
-    line-height: 1.65;
-  }
-
-  .hero-btn {
-    min-height: 50px;
-
-    font-size: 13px;
-
-    padding: 13px 15px;
-  }
-
-  .feature {
-    min-height: 51px;
-
-    padding: 6px 10px;
-  }
-
-  .feature-icon {
-    width: 36px;
-    height: 36px;
-
-    font-size: 14px;
-  }
-
-  .feature span {
     font-size: 12px;
   }
 
 }
 
 
-/* =====================================================
-   EXTRA SMALL PHONE
-   ===================================================== */
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
-@media (max-width: 340px) {
-
-  .hero {
-    padding: 42px 0 35px;
-  }
+@media (max-width: 480px) {
 
   .hero-container {
-    width: 92%;
+    padding:
+      96px 16px 38px;
   }
 
-  .hero-tag {
-    font-size: 10.5px;
 
-    padding: 7px 9px;
+  .hero h1 {
+    font-size: 40px;
+
+    letter-spacing: -1.2px;
   }
 
-  .hero-content h1 {
-    font-size: 1.8rem;
-  }
 
-  .hero-content p {
-    font-size: 0.82rem;
+  .hero-description {
+    font-size: 14px;
 
     line-height: 1.6;
   }
 
-  .hero-btn {
-    min-height: 48px;
 
-    font-size: 12.5px;
+  .hero-features {
+    gap:
+      10px 14px;
+
+    margin-top: 24px;
   }
+
 
   .feature {
-    min-height: 48px;
+    font-size: 11px;
   }
+
 
   .feature-icon {
-    width: 34px;
-    height: 34px;
+    width: 23px;
+    height: 23px;
 
-    font-size: 12px;
-  }
-
-  .feature span {
-    font-size: 11px;
+    flex-basis: 23px;
   }
 
 }
 
 
-/* =====================================================
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .hero-container {
+    padding:
+      90px 14px 32px;
+  }
+
+
+  .hero h1 {
+    font-size: 35px;
+  }
+
+
+  .hero-description {
+    font-size: 13px;
+  }
+
+
+  .hero-features {
+    gap:
+      8px 12px;
+  }
+
+}
+
+
+/* =========================================================
    REDUCED MOTION
-   ===================================================== */
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
   .hero-btn {
     transition: none;
-  }
-
-  .hero-btn:hover {
-    transform: none;
   }
 
 }

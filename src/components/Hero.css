@@ -1,17 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+/* =====================================================
+   GOOGLE FONT
+===================================================== */
+
+@import url(
+  "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+);
 
 
-/* =========================================
+/* =====================================================
    GLOBAL
-========================================= */
+===================================================== */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-
 
 body {
   margin: 0;
@@ -20,9 +24,9 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    HERO
-========================================= */
+===================================================== */
 
 .hero {
   position: relative;
@@ -37,22 +41,42 @@ body {
 
   padding: 90px 0;
 
-  background-color: #0f1a12;
+  background: #0f1a12;
 
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+  isolation: isolate;
 }
 
 
-/* =========================================
-   DARK IMAGE OVERLAY
-========================================= */
+/* =====================================================
+   HERO IMAGE
+   Critical LCP image
+===================================================== */
 
-.hero::before {
-  content: "";
-
+.hero-image {
   position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center center;
+
+  z-index: -3;
+}
+
+
+/* =====================================================
+   DARK IMAGE OVERLAY
+===================================================== */
+
+.hero-overlay {
+  position: absolute;
+
   inset: 0;
 
   background:
@@ -64,17 +88,17 @@ body {
       rgba(10, 20, 12, 0.12) 100%
     );
 
-  z-index: 0;
+  pointer-events: none;
+
+  z-index: -2;
 }
 
 
-/* =========================================
+/* =====================================================
    GREEN GLOW
-========================================= */
+===================================================== */
 
-.hero::after {
-  content: "";
-
+.hero-glow {
   position: absolute;
 
   right: -150px;
@@ -91,13 +115,13 @@ body {
 
   pointer-events: none;
 
-  z-index: 0;
+  z-index: -1;
 }
 
 
-/* =========================================
+/* =====================================================
    CONTAINER
-========================================= */
+===================================================== */
 
 .hero-container {
   position: relative;
@@ -114,12 +138,11 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    HERO CONTENT
-========================================= */
+===================================================== */
 
 .hero-content {
-
   width: 100%;
   max-width: 690px;
 
@@ -127,12 +150,11 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    TAG
-========================================= */
+===================================================== */
 
 .hero-tag {
-
   display: inline-flex;
 
   align-items: center;
@@ -155,17 +177,20 @@ body {
 
   font-weight: 600;
 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  /*
+    backdrop-filter is expensive on some devices.
+    Keep it only at a moderate blur.
+  */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 
-/* =========================================
+/* =====================================================
    HEADING
-========================================= */
+===================================================== */
 
 .hero-content h1 {
-
   margin: 0 0 25px;
 
   color: #ffffff;
@@ -180,17 +205,15 @@ body {
 }
 
 .hero-content h1 span {
-
   color: #b7f0bf;
 }
 
 
-/* =========================================
+/* =====================================================
    DESCRIPTION
-========================================= */
+===================================================== */
 
 .hero-content p {
-
   max-width: 570px;
 
   margin: 0 0 32px;
@@ -205,12 +228,11 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    BUTTON
-========================================= */
+===================================================== */
 
 .hero-btn {
-
   display: inline-flex;
 
   align-items: center;
@@ -224,11 +246,12 @@ body {
 
   border-radius: 16px;
 
-  background: linear-gradient(
-    135deg,
-    #2e7d32 0%,
-    #1f6a28 100%
-  );
+  background:
+    linear-gradient(
+      135deg,
+      #2e7d32 0%,
+      #1f6a28 100%
+    );
 
   color: #ffffff;
 
@@ -252,14 +275,14 @@ body {
 }
 
 .hero-btn:hover {
-
   transform: translateY(-3px);
 
-  background: linear-gradient(
-    135deg,
-    #388e3c,
-    #1b5e20
-  );
+  background:
+    linear-gradient(
+      135deg,
+      #388e3c,
+      #1b5e20
+    );
 
   box-shadow:
     0 22px 45px rgba(46, 125, 50, 0.36);
@@ -268,17 +291,15 @@ body {
 }
 
 .hero-btn:active {
-
   transform: translateY(0);
 }
 
 
-/* =========================================
+/* =====================================================
    FEATURES
-========================================= */
+===================================================== */
 
 .hero-features {
-
   display: flex;
 
   align-items: center;
@@ -291,12 +312,11 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    FEATURE
-========================================= */
+===================================================== */
 
 .feature {
-
   display: inline-flex;
 
   align-items: center;
@@ -316,17 +336,16 @@ body {
   box-shadow:
     0 10px 25px rgba(0, 0, 0, 0.12);
 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 
-/* =========================================
+/* =====================================================
    FEATURE ICON
-========================================= */
+===================================================== */
 
 .feature-icon {
-
   flex-shrink: 0;
 
   width: 43px;
@@ -354,12 +373,11 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    FEATURE TEXT
-========================================= */
+===================================================== */
 
 .feature span {
-
   color: rgba(255, 255, 255, 0.92);
 
   font-size: 14px;
@@ -370,36 +388,31 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    LARGE DESKTOP
-========================================= */
+===================================================== */
 
 @media (min-width: 1600px) {
 
   .hero {
-
     min-height: 820px;
 
     padding: 110px 0;
   }
 
   .hero-container {
-
     width: 90%;
   }
 
   .hero-content {
-
     max-width: 760px;
   }
 
   .hero-content h1 {
-
     font-size: 5.6rem;
   }
 
   .hero-content p {
-
     font-size: 1.15rem;
 
     max-width: 620px;
@@ -407,31 +420,27 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    LAPTOP
-========================================= */
+===================================================== */
 
 @media (max-width: 1200px) {
 
   .hero {
-
     min-height: calc(100vh - 82px);
 
     padding: 75px 0;
   }
 
   .hero-container {
-
     width: 94%;
   }
 
   .hero-content {
-
     max-width: 620px;
   }
 
   .hero-content h1 {
-
     font-size: clamp(
       2.8rem,
       5.5vw,
@@ -440,37 +449,32 @@ body {
   }
 
   .hero-features {
-
     gap: 10px;
   }
 
   .feature {
-
     padding-right: 13px;
   }
 
   .feature span {
-
     font-size: 13px;
   }
 }
 
 
-/* =========================================
+/* =====================================================
    TABLET
-========================================= */
+===================================================== */
 
 @media (max-width: 992px) {
 
   .hero {
-
     min-height: auto;
 
     padding: 80px 0;
   }
 
-  .hero::before {
-
+  .hero-overlay {
     background:
       linear-gradient(
         90deg,
@@ -480,17 +484,14 @@ body {
   }
 
   .hero-container {
-
     width: 92%;
   }
 
   .hero-content {
-
     max-width: 650px;
   }
 
   .hero-content h1 {
-
     font-size: clamp(
       2.8rem,
       7vw,
@@ -499,36 +500,34 @@ body {
   }
 
   .hero-content p {
-
     max-width: 580px;
 
     font-size: 1rem;
   }
 
   .hero-features {
-
     max-width: 650px;
   }
 }
 
 
-/* =========================================
+/* =====================================================
    SMALL TABLET
-========================================= */
+===================================================== */
 
 @media (max-width: 768px) {
 
   .hero {
-
     min-height: auto;
 
     padding: 70px 0 60px;
-
-    background-position: 62% center;
   }
 
-  .hero::before {
+  .hero-image {
+    object-position: 62% center;
+  }
 
+  .hero-overlay {
     background:
       linear-gradient(
         90deg,
@@ -538,8 +537,7 @@ body {
       );
   }
 
-  .hero::after {
-
+  .hero-glow {
     width: 300px;
     height: 300px;
 
@@ -550,19 +548,16 @@ body {
   }
 
   .hero-container {
-
     width: 92%;
   }
 
   .hero-content {
-
     max-width: 100%;
 
     padding: 10px 0;
   }
 
   .hero-tag {
-
     font-size: 14px;
 
     padding: 9px 14px;
@@ -571,7 +566,6 @@ body {
   }
 
   .hero-content h1 {
-
     font-size: clamp(
       2.5rem,
       8vw,
@@ -586,7 +580,6 @@ body {
   }
 
   .hero-content p {
-
     max-width: 600px;
 
     font-size: 0.98rem;
@@ -597,7 +590,6 @@ body {
   }
 
   .hero-btn {
-
     min-height: 54px;
 
     padding: 15px 27px;
@@ -606,21 +598,18 @@ body {
   }
 
   .hero-features {
-
     gap: 10px;
 
     margin-top: 25px;
   }
 
   .feature {
-
     min-height: 57px;
 
     padding: 7px 14px 7px 7px;
   }
 
   .feature-icon {
-
     width: 40px;
     height: 40px;
 
@@ -628,37 +617,34 @@ body {
   }
 
   .feature span {
-
     font-size: 13px;
   }
 }
 
 
-/* =========================================
+/* =====================================================
    MOBILE
-========================================= */
+===================================================== */
 
 @media (max-width: 576px) {
 
   .hero {
-
     padding: 55px 0 48px;
+  }
 
-    background-position: 60% center;
+  .hero-image {
+    object-position: 60% center;
   }
 
   .hero-container {
-
     width: 90%;
   }
 
   .hero-content {
-
     padding: 0;
   }
 
   .hero-tag {
-
     font-size: 12.5px;
 
     padding: 8px 12px;
@@ -667,7 +653,6 @@ body {
   }
 
   .hero-content h1 {
-
     font-size: clamp(
       2.15rem,
       10vw,
@@ -680,7 +665,6 @@ body {
   }
 
   .hero-content p {
-
     font-size: 0.9rem;
 
     line-height: 1.7;
@@ -689,7 +673,6 @@ body {
   }
 
   .hero-btn {
-
     width: 100%;
 
     min-height: 52px;
@@ -702,7 +685,6 @@ body {
   }
 
   .hero-features {
-
     width: 100%;
 
     flex-direction: column;
@@ -715,7 +697,6 @@ body {
   }
 
   .feature {
-
     width: 100%;
 
     min-height: 54px;
@@ -728,7 +709,6 @@ body {
   }
 
   .feature-icon {
-
     width: 38px;
     height: 38px;
 
@@ -736,53 +716,48 @@ body {
   }
 
   .feature span {
-
     font-size: 13px;
   }
 }
 
 
-/* =========================================
+/* =====================================================
    SMALL PHONE
-========================================= */
+===================================================== */
 
 @media (max-width: 400px) {
 
   .hero {
-
     padding: 48px 0 40px;
+  }
 
-    background-position: 58% center;
+  .hero-image {
+    object-position: 58% center;
   }
 
   .hero-container {
-
     width: 90%;
   }
 
   .hero-tag {
-
     font-size: 11.5px;
 
     padding: 7px 10px;
   }
 
   .hero-content h1 {
-
     font-size: 2rem;
 
     line-height: 1.1;
   }
 
   .hero-content p {
-
     font-size: 0.86rem;
 
     line-height: 1.65;
   }
 
   .hero-btn {
-
     min-height: 50px;
 
     font-size: 13px;
@@ -791,74 +766,65 @@ body {
   }
 
   .feature {
-
     min-height: 51px;
 
     padding: 6px 10px;
   }
 
   .feature-icon {
-
     width: 36px;
     height: 36px;
+
+    font-size: 14px;
   }
 
   .feature span {
-
     font-size: 12px;
   }
 }
 
 
-/* =========================================
+/* =====================================================
    EXTRA SMALL PHONE
-========================================= */
+===================================================== */
 
 @media (max-width: 340px) {
 
   .hero {
-
     padding: 42px 0 35px;
   }
 
   .hero-container {
-
     width: 92%;
   }
 
   .hero-tag {
-
     font-size: 10.5px;
 
     padding: 7px 9px;
   }
 
   .hero-content h1 {
-
     font-size: 1.8rem;
   }
 
   .hero-content p {
-
     font-size: 0.82rem;
 
     line-height: 1.6;
   }
 
   .hero-btn {
-
     min-height: 48px;
 
     font-size: 12.5px;
   }
 
   .feature {
-
     min-height: 48px;
   }
 
   .feature-icon {
-
     width: 34px;
     height: 34px;
 
@@ -866,7 +832,22 @@ body {
   }
 
   .feature span {
-
     font-size: 11px;
+  }
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-btn {
+    transition: none;
+  }
+
+  .hero-btn:hover {
+    transform: none;
   }
 }

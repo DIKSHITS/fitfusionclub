@@ -1,29 +1,47 @@
 import React from "react";
 import "./Hero.css";
+
 import heroImage from "../assets/images/hero.WebP";
+import heroMobileImage from "../assets/images/hero-mobile.WebP";
 
 function Hero() {
   return (
-    <section id="home" className="hero" aria-labelledby="hero-title">
+    <section
+      id="home"
+      className="hero"
+      aria-labelledby="hero-title"
+    >
 
       {/* =====================================================
           CRITICAL HERO IMAGE
-          - Above-the-fold image
+          - Responsive image for mobile/desktop
           - High priority for LCP
-          - NOT lazy loaded
+          - Not lazy loaded
           - Explicit dimensions prevent CLS
       ====================================================== */}
-      <img
-        className="hero-image"
-        src={heroImage}
-        alt=""
-        width="1920"
-        height="1080"
-        fetchPriority="high"
-        loading="eager"
-        decoding="async"
-        aria-hidden="true"
-      />
+      <picture className="hero-picture">
+
+        {/* Mobile image */}
+        <source
+          media="(max-width: 768px)"
+          srcSet={heroMobileImage}
+          type="image/webp"
+        />
+
+        {/* Desktop image */}
+        <img
+          className="hero-image"
+          src={heroImage}
+          alt=""
+          width="1920"
+          height="1080"
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
+          aria-hidden="true"
+        />
+
+      </picture>
 
       {/* =====================================================
           DARK OVERLAY
@@ -56,7 +74,7 @@ function Hero() {
           </span>
 
           {/* =================================================
-              MAIN HEADING — LCP TEXT
+              MAIN HEADING
           ================================================== */}
           <h1 id="hero-title">
             Your Wellness,
@@ -68,9 +86,9 @@ function Hero() {
               DESCRIPTION
           ================================================== */}
           <p>
-            Personalized health &amp; wellness solutions to help you
-            achieve a balanced and healthier lifestyle with expert
-            guidance.
+            Personalized health &amp; wellness solutions to help
+            you achieve a balanced and healthier lifestyle with
+            expert guidance.
           </p>
 
           {/* =================================================
@@ -95,6 +113,7 @@ function Hero() {
               >
                 ✓
               </span>
+
               <span>Expert Guidance</span>
             </div>
 
@@ -105,6 +124,7 @@ function Hero() {
               >
                 🍃
               </span>
+
               <span>Personalized Plan</span>
             </div>
 
@@ -115,6 +135,7 @@ function Hero() {
               >
                 🌱
               </span>
+
               <span>100% Natural</span>
             </div>
 

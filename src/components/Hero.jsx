@@ -2,7 +2,7 @@ import React from "react";
 import "./Hero.css";
 
 import heroImage from "../assets/images/hero.WebP";
-import heroMobileImage from "../assets/images/hero-mobile.WebP";
+import heroMobileImage from "../assets/images/hero-mobile.webp";
 
 function Hero() {
   return (

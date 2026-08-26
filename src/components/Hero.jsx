@@ -13,9 +13,9 @@ function Hero() {
     >
       {/* =====================================================
           HERO BACKGROUND IMAGE
-          - Desktop + mobile responsive
-          - Eager loading
-          - High priority
+          - Desktop uses hero.WebP
+          - Mobile uses hero-mobile.webp
+          - LCP image loads immediately
           - No lazy loading
       ====================================================== */}
 
@@ -32,6 +32,7 @@ function Hero() {
           alt=""
           width="1920"
           height="1080"
+          sizes="100vw"
           fetchPriority="high"
           loading="eager"
           decoding="async"
@@ -50,7 +51,6 @@ function Hero() {
 
       {/* =====================================================
           DECORATIVE GLOW
-          Hidden on mobile for better performance
       ====================================================== */}
 
       <div
@@ -63,12 +63,9 @@ function Hero() {
       ====================================================== */}
 
       <div className="hero-container">
-
         <div className="hero-content">
 
-          {/* =================================================
-              TAG
-          ================================================== */}
+          {/* TAG */}
 
           <span className="hero-tag">
             <span
@@ -83,9 +80,7 @@ function Hero() {
             </span>
           </span>
 
-          {/* =================================================
-              MAIN HEADING
-          ================================================== */}
+          {/* MAIN HEADING */}
 
           <h1 id="hero-title">
             Your Wellness,
@@ -93,9 +88,7 @@ function Hero() {
             Our <span>Priority</span>
           </h1>
 
-          {/* =================================================
-              DESCRIPTION
-          ================================================== */}
+          {/* DESCRIPTION */}
 
           <p className="hero-description">
             Personalized health &amp; wellness solutions to help
@@ -103,15 +96,14 @@ function Hero() {
             expert guidance.
           </p>
 
-          {/* =================================================
-              CTA
-          ================================================== */}
+          {/* CTA */}
 
           <a
             href="#contact"
             className="hero-btn"
           >
             <span>Book Free Consultation</span>
+
             <span
               className="hero-btn-arrow"
               aria-hidden="true"
@@ -120,9 +112,7 @@ function Hero() {
             </span>
           </a>
 
-          {/* =================================================
-              FEATURES
-          ================================================== */}
+          {/* FEATURES */}
 
           <div className="hero-features">
 
@@ -168,7 +158,6 @@ function Hero() {
           </div>
 
         </div>
-
       </div>
     </section>
   );

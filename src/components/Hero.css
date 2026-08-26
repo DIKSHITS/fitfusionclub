@@ -50,14 +50,13 @@
   width: 100%;
   height: 100%;
 
-  /*
-    Cover keeps the image filling the entire hero.
-    The mobile object-position is adjusted below.
-  */
   object-fit: cover;
 
   object-position: center center;
 
+  /*
+    Avoid unnecessary GPU work.
+  */
   transform: none;
 
   backface-visibility: hidden;
@@ -377,11 +376,9 @@
     padding: 110px 22px 60px;
   }
 
-
   .hero-content {
     max-width: 600px;
   }
-
 
   .hero h1 {
     font-size: clamp(42px, 8vw, 64px);
@@ -412,7 +409,6 @@
     height: 100%;
   }
 
-
   .hero-image {
     width: 100%;
     height: 100%;
@@ -420,10 +416,10 @@
     object-fit: cover;
 
     /*
-      Slightly shift the image so the main subject
-      remains visible on phone screens.
+      Mobile image is already a dedicated asset,
+      so keep the important subject centered.
     */
-    object-position: 60% center;
+    object-position: center center;
   }
 
 
@@ -444,7 +440,6 @@
 
   /* -------------------------------------------------------
      REMOVE GLOW
-     Reduces expensive blur painting on mobile.
   ------------------------------------------------------- */
 
   .hero-glow {
@@ -515,8 +510,6 @@
     line-height: 1.05;
 
     letter-spacing: -1.5px;
-
-    text-wrap: balance;
   }
 
 
@@ -606,33 +599,11 @@
 
 @media (max-width: 480px) {
 
-  .hero {
-    min-height: 100svh;
-  }
-
-
-  /* -------------------------------------------------------
-     IMAGE
-  ------------------------------------------------------- */
-
-  .hero-image {
-    object-position: 58% center;
-  }
-
-
-  /* -------------------------------------------------------
-     CONTAINER
-  ------------------------------------------------------- */
-
   .hero-container {
     padding:
       96px 16px 38px;
   }
 
-
-  /* -------------------------------------------------------
-     HEADING
-  ------------------------------------------------------- */
 
   .hero h1 {
     font-size: 40px;
@@ -643,10 +614,6 @@
   }
 
 
-  /* -------------------------------------------------------
-     DESCRIPTION
-  ------------------------------------------------------- */
-
   .hero-description {
     max-width: 100%;
 
@@ -656,20 +623,12 @@
   }
 
 
-  /* -------------------------------------------------------
-     CTA
-  ------------------------------------------------------- */
-
   .hero-btn {
     width: 100%;
 
     max-width: 100%;
   }
 
-
-  /* -------------------------------------------------------
-     FEATURES
-  ------------------------------------------------------- */
 
   .hero-features {
     gap:
@@ -679,18 +638,10 @@
   }
 
 
-  /* -------------------------------------------------------
-     FEATURE
-  ------------------------------------------------------- */
-
   .feature {
     font-size: 11px;
   }
 
-
-  /* -------------------------------------------------------
-     FEATURE ICON
-  ------------------------------------------------------- */
 
   .feature-icon {
     width: 23px;
@@ -714,19 +665,6 @@
   }
 
 
-  /* -------------------------------------------------------
-     IMAGE
-  ------------------------------------------------------- */
-
-  .hero-image {
-    object-position: 55% center;
-  }
-
-
-  /* -------------------------------------------------------
-     HEADING
-  ------------------------------------------------------- */
-
   .hero h1 {
     font-size: 35px;
 
@@ -734,20 +672,12 @@
   }
 
 
-  /* -------------------------------------------------------
-     DESCRIPTION
-  ------------------------------------------------------- */
-
   .hero-description {
     font-size: 13px;
 
     line-height: 1.55;
   }
 
-
-  /* -------------------------------------------------------
-     FEATURES
-  ------------------------------------------------------- */
 
   .hero-features {
     gap:

@@ -4,18 +4,15 @@
 
 .hero {
   position: relative;
-
   width: 100%;
   min-height: 100vh;
   min-height: 100svh;
 
   overflow: hidden;
+  isolation: isolate;
 
   background: #102218;
-
   color: #ffffff;
-
-  isolation: isolate;
 }
 
 
@@ -25,16 +22,13 @@
 
 .hero-picture {
   position: absolute;
-
   inset: 0;
 
   display: block;
-
   width: 100%;
   height: 100%;
 
   z-index: -3;
-
   pointer-events: none;
 }
 
@@ -50,14 +44,9 @@
   height: 100%;
 
   object-fit: cover;
-
   object-position: center center;
 
-  /*
-    Avoid unnecessary GPU work.
-  */
   transform: none;
-
   backface-visibility: hidden;
 }
 
@@ -68,11 +57,9 @@
 
 .hero-overlay {
   position: absolute;
-
   inset: 0;
 
   z-index: -2;
-
   pointer-events: none;
 
   background:
@@ -129,7 +116,6 @@
     120px 24px 70px;
 
   display: flex;
-
   align-items: center;
 }
 
@@ -140,7 +126,6 @@
 
 .hero-content {
   width: 100%;
-
   max-width: 650px;
 }
 
@@ -153,7 +138,6 @@
   display: inline-flex;
 
   align-items: center;
-
   gap: 8px;
 
   margin-bottom: 20px;
@@ -173,9 +157,7 @@
   color: #d9f5dc;
 
   font-size: 14px;
-
   font-weight: 500;
-
   line-height: 1.4;
 }
 
@@ -239,9 +221,7 @@
     rgba(255, 255, 255, 0.86);
 
   font-size: 17px;
-
   line-height: 1.7;
-
   font-weight: 400;
 }
 
@@ -264,19 +244,15 @@
     0 22px;
 
   border: 0;
-
   border-radius: 12px;
 
   background: #4caf50;
-
   color: #ffffff;
 
   text-decoration: none;
 
   font-size: 15px;
-
   font-weight: 700;
-
   line-height: 1;
 
   cursor: pointer;
@@ -293,7 +269,6 @@
 
 .hero-btn-arrow {
   font-size: 19px;
-
   line-height: 1;
 }
 
@@ -304,7 +279,6 @@
 
 .hero-btn:hover {
   background: #43a047;
-
   transform: translateY(-2px);
 }
 
@@ -317,7 +291,6 @@
   display: flex;
 
   align-items: center;
-
   flex-wrap: wrap;
 
   gap: 18px 24px;
@@ -341,9 +314,7 @@
     rgba(255, 255, 255, 0.90);
 
   font-size: 14px;
-
   font-weight: 500;
-
   line-height: 1.4;
 }
 
@@ -371,20 +342,96 @@
   color: #8ee493;
 
   font-size: 13px;
-
   line-height: 1;
 }
 
 
 /* =========================================================
-   TABLET
+   LARGE DESKTOP
+   1440px+
 ========================================================= */
 
-@media (max-width: 900px) {
+@media (min-width: 1440px) {
+
+  .hero-container {
+    max-width: 1320px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .hero-content {
+    max-width: 700px;
+  }
+
+  .hero h1 {
+    font-size: clamp(68px, 5vw, 82px);
+  }
+
+  .hero-description {
+    max-width: 600px;
+    font-size: 18px;
+  }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+   1200px - 1439px
+========================================================= */
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+
+  .hero-container {
+    max-width: 1200px;
+  }
+
+}
+
+
+/* =========================================================
+   LAPTOP
+   1024px - 1199px
+========================================================= */
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+
+  .hero-container {
+    max-width: 1100px;
+
+    padding:
+      115px 28px 65px;
+  }
+
+  .hero-content {
+    max-width: 620px;
+  }
+
+  .hero h1 {
+    font-size:
+      clamp(48px, 6vw, 68px);
+
+    letter-spacing: -2px;
+  }
+
+  .hero-description {
+    max-width: 540px;
+    font-size: 16px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET LANDSCAPE
+   901px - 1023px
+========================================================= */
+
+@media (min-width: 901px) and (max-width: 1023px) {
 
   .hero-container {
     padding:
-      110px 22px 60px;
+      110px 24px 60px;
   }
 
   .hero-content {
@@ -393,9 +440,51 @@
 
   .hero h1 {
     font-size:
-      clamp(42px, 8vw, 64px);
+      clamp(44px, 7vw, 62px);
+
+    letter-spacing: -1.8px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+   769px - 900px
+========================================================= */
+
+@media (min-width: 769px) and (max-width: 900px) {
+
+  .hero-container {
+    padding:
+      105px 22px 60px;
+  }
+
+  .hero-content {
+    max-width: 600px;
+  }
+
+  .hero h1 {
+    font-size:
+      clamp(42px, 8vw, 60px);
 
     letter-spacing: -2px;
+  }
+
+  .hero-description {
+    max-width: 540px;
+
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .hero-features {
+    gap: 16px 20px;
   }
 
 }
@@ -403,6 +492,7 @@
 
 /* =========================================================
    MOBILE
+   481px - 768px
 ========================================================= */
 
 @media (max-width: 768px) {
@@ -437,8 +527,8 @@
 
 
   /* -------------------------------------------------------
-     REMOVE GLOW
-     Reduces expensive blur painting.
+     REMOVE GLOW ON MOBILE
+     Better rendering performance.
   ------------------------------------------------------- */
 
   .hero-glow {
@@ -457,7 +547,6 @@
       105px 20px 45px;
 
     align-items: center;
-
     justify-content: center;
   }
 
@@ -468,7 +557,6 @@
 
   .hero-content {
     width: 100%;
-
     max-width: 560px;
 
     text-align: center;
@@ -516,7 +604,6 @@
       18px auto 26px;
 
     font-size: 15px;
-
     line-height: 1.6;
   }
 
@@ -557,7 +644,6 @@
 
   .feature {
     gap: 6px;
-
     font-size: 12px;
   }
 
@@ -579,30 +665,32 @@
 
 
 /* =========================================================
-   SMALL MOBILE
+   STANDARD PHONE
+   390px - 480px
 ========================================================= */
 
-@media (max-width: 480px) {
+@media (min-width: 390px) and (max-width: 480px) {
 
   .hero-container {
     padding:
-      96px 16px 38px;
+      92px 18px 38px;
   }
-
 
   .hero h1 {
-    font-size: 40px;
+    font-size:
+      clamp(38px, 10.5vw, 46px);
 
-    letter-spacing: -1.2px;
+    letter-spacing: -1.3px;
   }
-
 
   .hero-description {
-    font-size: 14px;
-
-    line-height: 1.6;
+    font-size: 14.5px;
+    line-height: 1.58;
   }
 
+  .hero-btn {
+    min-height: 50px;
+  }
 
   .hero-features {
     gap:
@@ -611,16 +699,55 @@
     margin-top: 24px;
   }
 
+  .feature {
+    font-size: 11.5px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONE
+   361px - 389px
+========================================================= */
+
+@media (min-width: 361px) and (max-width: 389px) {
+
+  .hero-container {
+    padding:
+      88px 16px 34px;
+  }
+
+  .hero-tag {
+    font-size: 11.5px;
+  }
+
+  .hero h1 {
+    font-size: 37px;
+    letter-spacing: -1.1px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .hero-btn {
+    min-height: 50px;
+    font-size: 14px;
+  }
+
+  .hero-features {
+    gap:
+      9px 12px;
+  }
 
   .feature {
     font-size: 11px;
   }
 
-
   .feature-icon {
     width: 23px;
     height: 23px;
-
     flex-basis: 23px;
   }
 
@@ -628,30 +755,112 @@
 
 
 /* =========================================================
-   VERY SMALL DEVICES
+   VERY SMALL PHONE
+   360px and below
 ========================================================= */
 
 @media (max-width: 360px) {
 
   .hero-container {
     padding:
-      90px 14px 32px;
+      82px 14px 30px;
   }
 
+  .hero-tag {
+    margin-bottom: 13px;
+    padding: 6px 10px;
+    font-size: 10.5px;
+  }
 
   .hero h1 {
-    font-size: 35px;
+    font-size: 34px;
+    line-height: 1.06;
+    letter-spacing: -1px;
   }
-
 
   .hero-description {
+    margin:
+      16px auto 22px;
+
     font-size: 13px;
+    line-height: 1.55;
   }
 
+  .hero-btn {
+    min-height: 48px;
+    padding: 0 16px;
+    border-radius: 10px;
+
+    font-size: 13.5px;
+  }
 
   .hero-features {
     gap:
-      8px 12px;
+      8px 10px;
+
+    margin-top: 21px;
+  }
+
+  .feature {
+    gap: 5px;
+    font-size: 10.5px;
+  }
+
+  .feature-icon {
+    width: 22px;
+    height: 22px;
+    flex-basis: 22px;
+
+    font-size: 11px;
+  }
+
+}
+
+
+/* =========================================================
+   LANDSCAPE PHONES
+========================================================= */
+
+@media (max-width: 900px) and (orientation: landscape) {
+
+  .hero-container {
+    min-height: 100svh;
+
+    padding:
+      90px 24px 35px;
+  }
+
+  .hero-content {
+    max-width: 680px;
+  }
+
+  .hero h1 {
+    font-size:
+      clamp(34px, 7vw, 52px);
+  }
+
+  .hero-description {
+    margin:
+      14px 0 20px;
+
+    font-size: 14px;
+  }
+
+  .hero-features {
+    margin-top: 20px;
+  }
+
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+  .hero-btn:hover {
+    transform: none;
   }
 
 }
@@ -665,6 +874,42 @@
 
   .hero-btn {
     transition: none;
+  }
+
+}
+
+
+/* =========================================================
+   SAFE AREA
+   iPhone notch / Dynamic Island
+========================================================= */
+
+@supports (padding: max(0px)) {
+
+  .hero-container {
+    padding-left:
+      max(24px, env(safe-area-inset-left));
+
+    padding-right:
+      max(24px, env(safe-area-inset-right));
+  }
+
+  @media (max-width: 768px) {
+
+    .hero-container {
+      padding-top:
+        max(92px, env(safe-area-inset-top));
+
+      padding-bottom:
+        max(38px, env(safe-area-inset-bottom));
+
+      padding-left:
+        max(16px, env(safe-area-inset-left));
+
+      padding-right:
+        max(16px, env(safe-area-inset-right));
+    }
+
   }
 
 }

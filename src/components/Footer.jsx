@@ -15,23 +15,25 @@ import {
 
 function Footer() {
   return (
-   <footer id="contact" className="footer">
+    <footer id="contact" className="footer">
 
       <div className="footer-container">
 
-        {/* Company */}
+        {/* =====================================================
+            COMPANY
+        ====================================================== */}
 
         <div className="footer-col">
 
           <div className="footer-logo">
 
-            <div className="logo-icon">
+            <div className="logo-icon" aria-hidden="true">
               <FaLeaf />
             </div>
 
             <div>
               <h2>Fusion Fitness</h2>
-              <span>Health & Wellness</span>
+              <span>Health &amp; Wellness</span>
             </div>
 
           </div>
@@ -43,101 +45,186 @@ function Footer() {
             yoga, and holistic health solutions.
           </p>
 
+          {/* =================================================
+              SOCIAL LINKS
+          ================================================== */}
+
           <div className="footer-social">
 
-            <a href="https://facebook.com" target="_blank" rel="noreferrer">
-              <FaFacebookF />
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Fusion Fitness on Facebook"
+            >
+              <FaFacebookF aria-hidden="true" />
             </a>
 
             <a
               href="https://www.instagram.com/fusion_fitness24?igsh=MTVsaWxjZW16OG4wYg%3D%3D"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              aria-label="Visit Fusion Fitness on Instagram"
             >
-              <FaInstagram />
+              <FaInstagram aria-hidden="true" />
             </a>
 
-            <a href="https://youtube.com" target="_blank" rel="noreferrer">
-              <FaYoutube />
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Fusion Fitness on YouTube"
+            >
+              <FaYoutube aria-hidden="true" />
             </a>
 
-            <a href="https://twitter.com" target="_blank" rel="noreferrer">
-              <FaTwitter />
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Fusion Fitness on Twitter"
+            >
+              <FaTwitter aria-hidden="true" />
             </a>
 
           </div>
 
         </div>
 
-        {/* Quick Links */}
+
+        {/* =====================================================
+            QUICK LINKS
+        ====================================================== */}
 
         <div className="footer-col">
 
           <h3>Quick Links</h3>
 
           <ul>
+            <li>
+              <a href="/">Home</a>
+            </li>
 
-            <li><a href="/">Home</a></li>
-            <li><a href="/">About Us</a></li>
-            <li><a href="/">Services</a></li>
-            <li><a href="/">Programs</a></li>
-            <li><a href="/">Testimonials</a></li>
-            <li><a href="/">Blog</a></li>
+            <li>
+              <a href="/#about">About Us</a>
+            </li>
 
+            <li>
+              <a href="/#services">Services</a>
+            </li>
+
+            <li>
+              <a href="/#programs">Programs</a>
+            </li>
+
+            <li>
+              <a href="/#testimonials">Testimonials</a>
+            </li>
+
+            <li>
+              <a href="/#blog">Blog</a>
+            </li>
           </ul>
 
         </div>
 
-        {/* Services */}
+
+        {/* =====================================================
+            SERVICES
+        ====================================================== */}
 
         <div className="footer-col">
 
           <h3>Our Services</h3>
 
           <ul>
-
             <li>Nutrition Counseling</li>
             <li>Weight Loss Program</li>
             <li>Weight Gain Program</li>
             <li>PCOS Wellness</li>
-            <li>Yoga & Meditation</li>
+            <li>Yoga &amp; Meditation</li>
             <li>Lifestyle Coaching</li>
-
           </ul>
 
         </div>
 
-        {/* Contact */}
+
+        {/* =====================================================
+            CONTACT
+        ====================================================== */}
 
         <div className="footer-col">
 
           <h3>Contact Us</h3>
 
           <div className="contact-item">
-            <FaMapMarkerAlt />
-            <span>1c/ Kustia Rd, Picnic Garden, opposite merlin iland building, Tiljala, Kolkata, West Bengal 700039, India</span>
+
+            <FaMapMarkerAlt
+              aria-hidden="true"
+              focusable="false"
+            />
+
+            <address>
+              1c/ Kustia Rd, Picnic Garden, opposite Merlin
+              Island Building, Tiljala, Kolkata, West Bengal
+              700039, India
+            </address>
+
           </div>
 
-          <div className="contact-item">
-            <FaPhoneAlt />
-            <a href="tel:+919007089970">+91 9007089970</a>
-          </div>
 
           <div className="contact-item">
-            <FaEnvelope />
-            <a href="mailto:fusionfitness365@gmail.com">fusionfitness365@gmail.com</a>
+
+            <FaPhoneAlt
+              aria-hidden="true"
+              focusable="false"
+            />
+
+            <a href="tel:+919007089970">
+              +91 9007089970
+            </a>
+
           </div>
 
+
           <div className="contact-item">
-            <FaGlobe />
-            <span>www.fitfusionclub.com</span>
+
+            <FaEnvelope
+              aria-hidden="true"
+              focusable="false"
+            />
+
+            <a href="mailto:fusionfitness365@gmail.com">
+              fusionfitness365@gmail.com
+            </a>
+
+          </div>
+
+
+          <div className="contact-item">
+
+            <FaGlobe
+              aria-hidden="true"
+              focusable="false"
+            />
+
+            <a
+              href="https://fitfusionclub.com/"
+              aria-label="Visit Fit Fusion Club website"
+            >
+              www.fitfusionclub.com
+            </a>
+
           </div>
 
         </div>
 
       </div>
 
-      {/* Bottom */}
+
+      {/* =====================================================
+          FOOTER BOTTOM
+      ====================================================== */}
 
       <div className="footer-bottom">
 
@@ -147,11 +234,15 @@ function Footer() {
 
         <div className="footer-links">
 
-          <a href="/">Privacy Policy</a>
+          <a href="/privacy-policy">
+            Privacy Policy
+          </a>
 
-          <span>|</span>
+          <span aria-hidden="true">|</span>
 
-          <a href="/">Terms & Conditions</a>
+          <a href="/terms-and-conditions">
+            Terms &amp; Conditions
+          </a>
 
         </div>
 

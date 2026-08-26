@@ -1,0 +1,29 @@
+# Fusion Fitness
+
+> Fusion Fitness is a health and wellness platform providing personalized fitness coaching, nutrition guidance, wellness programs, yoga, meditation, and lifestyle coaching.
+
+## Website
+
+- [Home](/)
+- [About Us](/#about)
+- [Services](/#services)
+- [Programs](/#programs)
+- [Testimonials](/#testimonials)
+- [Blog](/#blog)
+- [Contact](/#contact)
+
+## Services
+
+- Nutrition Counseling
+- Weight Loss Program
+- Weight Gain Program
+- PCOS Wellness
+- Yoga & Meditation
+- Lifestyle Coaching
+
+## Contact
+
+- Phone: +91 9007089970
+- Email: fusionfitness365@gmail.com
+- Website: https://www.fitfusionclub.com
+- Address: 1c/ Kustia Rd, Picnic Garden, opposite Merlin Island Building, Tiljala, Kolkata, West Bengal 700039, India

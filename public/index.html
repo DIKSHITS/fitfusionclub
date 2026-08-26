@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     <!-- =====================================================
          BASIC META
     ====================================================== -->
@@ -20,7 +19,7 @@
 
     <meta
       name="robots"
-      content="index, follow"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     />
 
     <meta
@@ -38,7 +37,7 @@
     ====================================================== -->
 
     <title>
-      Fit Fusion Club | Weight Loss & Fitness Centre
+      Fit Fusion Club | Weight Loss &amp; Fitness Centre
     </title>
 
     <!-- =====================================================
@@ -51,15 +50,6 @@
     />
 
     <!-- =====================================================
-         SEO KEYWORDS
-    ====================================================== -->
-
-    <meta
-      name="keywords"
-      content="weight loss, weight loss program, weight loss centre, fitness centre, fitness club, Fit Fusion Club, personal training, weight loss training, nutrition coaching, fitness coaching, wellness centre, weight gain, healthy lifestyle"
-    />
-
-    <!-- =====================================================
          CANONICAL
     ====================================================== -->
 
@@ -69,8 +59,16 @@
     />
 
     <!-- =====================================================
+         LLMS.TXT
+    ====================================================== -->
+
+    <link
+      rel="llms-txt"
+      href="/llms.txt"
+    />
+
+    <!-- =====================================================
          FAVICON
-         Vite / React public folder
     ====================================================== -->
 
     <link
@@ -83,6 +81,10 @@
       rel="apple-touch-icon"
       href="/logo.png"
     />
+
+    <!-- =====================================================
+         WEB APP MANIFEST
+    ====================================================== -->
 
     <link
       rel="manifest"
@@ -105,7 +107,7 @@
 
     <meta
       property="og:title"
-      content="Fit Fusion Club | Weight Loss & Fitness Centre"
+      content="Fit Fusion Club | Weight Loss &amp; Fitness Centre"
     />
 
     <meta
@@ -128,6 +130,11 @@
       content="Fit Fusion Club"
     />
 
+    <meta
+      property="og:locale"
+      content="en_IN"
+    />
+
     <!-- =====================================================
          TWITTER / X
     ====================================================== -->
@@ -139,7 +146,7 @@
 
     <meta
       name="twitter:title"
-      content="Fit Fusion Club | Weight Loss & Fitness Centre"
+      content="Fit Fusion Club | Weight Loss &amp; Fitness Centre"
     />
 
     <meta
@@ -152,8 +159,13 @@
       content="https://fitfusionclub.com/logo.png"
     />
 
+    <meta
+      name="twitter:image:alt"
+      content="Fit Fusion Club - Weight Loss and Fitness Centre"
+    />
+
     <!-- =====================================================
-         GOOGLE FONT CONNECTION
+         GOOGLE FONT PERFORMANCE
     ====================================================== -->
 
     <link
@@ -168,23 +180,40 @@
     />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
     <!-- =====================================================
-         HEALTH CLUB SCHEMA
+         LOCAL BUSINESS / HEALTH CLUB SCHEMA
     ====================================================== -->
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "HealthClub",
+        "@id": "https://fitfusionclub.com/#healthclub",
         "name": "Fit Fusion Club",
         "url": "https://fitfusionclub.com/",
-        "logo": "https://fitfusionclub.com/logo.png",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://fitfusionclub.com/logo.png"
+        },
+        "image": "https://fitfusionclub.com/logo.png",
         "description": "Fit Fusion Club provides personalized weight loss, fitness, nutrition and wellness programs.",
-        "sameAs": []
+        "telephone": "+91 9007089970",
+        "email": "fusionfitness365@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1c/ Kustia Rd, Picnic Garden, opposite Merlin Island Building, Tiljala",
+          "addressLocality": "Kolkata",
+          "addressRegion": "West Bengal",
+          "postalCode": "700039",
+          "addressCountry": "IN"
+        },
+        "sameAs": [
+          "https://www.instagram.com/fusion_fitness24/"
+        ]
       }
     </script>
 
@@ -196,22 +225,42 @@
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
+        "@id": "https://fitfusionclub.com/#website",
         "name": "Fit Fusion Club",
-        "url": "https://fitfusionclub.com/"
+        "url": "https://fitfusionclub.com/",
+        "description": "Fit Fusion Club - Weight Loss, Fitness, Nutrition and Wellness Centre",
+        "publisher": {
+          "@id": "https://fitfusionclub.com/#healthclub"
+        },
+        "inLanguage": "en-IN"
       }
     </script>
-
   </head>
 
   <body>
+
+    <!-- =====================================================
+         NOSCRIPT
+    ====================================================== -->
 
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
 
+    <!-- =====================================================
+         REACT ROOT
+    ====================================================== -->
+
     <div id="root"></div>
 
-    <script type="module" src="/src/main.jsx"></script>
+    <!-- =====================================================
+         VITE / REACT ENTRY
+    ====================================================== -->
+
+    <script
+      type="module"
+      src="/src/main.jsx"
+    ></script>
 
   </body>
 </html>

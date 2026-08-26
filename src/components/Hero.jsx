@@ -4,11 +4,14 @@ import heroImage from "../assets/images/hero.WebP";
 
 function Hero() {
   return (
-    <section id="home" className="hero">
+    <section id="home" className="hero" aria-labelledby="hero-title">
 
       {/* =====================================================
-          HERO IMAGE
-          Critical above-the-fold image
+          CRITICAL HERO IMAGE
+          - Above-the-fold image
+          - High priority for LCP
+          - NOT lazy loaded
+          - Explicit dimensions prevent CLS
       ====================================================== */}
       <img
         className="hero-image"
@@ -19,46 +22,64 @@ function Hero() {
         fetchPriority="high"
         loading="eager"
         decoding="async"
+        aria-hidden="true"
       />
 
       {/* =====================================================
           DARK OVERLAY
       ====================================================== */}
-      <div className="hero-overlay" aria-hidden="true" />
+      <div
+        className="hero-overlay"
+        aria-hidden="true"
+      />
 
       {/* =====================================================
-          GREEN GLOW
+          DECORATIVE GREEN GLOW
       ====================================================== */}
-      <div className="hero-glow" aria-hidden="true" />
+      <div
+        className="hero-glow"
+        aria-hidden="true"
+      />
 
       {/* =====================================================
           HERO CONTENT
       ====================================================== */}
       <div className="hero-container">
-
         <div className="hero-content">
 
-          {/* Tag */}
+          {/* =================================================
+              TAG
+          ================================================== */}
           <span className="hero-tag">
             <span aria-hidden="true">🌿</span>
-            Live Healthy. Live Happy.
+            <span>Live Healthy. Live Happy.</span>
           </span>
 
-          {/* Heading */}
-          <h1>
+          {/* =================================================
+              MAIN HEADING — LCP TEXT
+          ================================================== */}
+          <h1 id="hero-title">
             Your Wellness,
             <br />
             Our <span>Priority</span>
           </h1>
 
-          {/* Description */}
+          {/* =================================================
+              DESCRIPTION
+          ================================================== */}
           <p>
-            Personalized health &amp; wellness solutions to help you achieve
-            a balanced and healthier lifestyle with expert guidance.
+            Personalized health &amp; wellness solutions to help you
+            achieve a balanced and healthier lifestyle with expert
+            guidance.
           </p>
 
-          {/* CTA */}
-          <a href="#contact" className="hero-btn">
+          {/* =================================================
+              PRIMARY CTA
+          ================================================== */}
+          <a
+            href="#contact"
+            className="hero-btn"
+          >
             Book Free Consultation
           </a>
 
@@ -68,34 +89,40 @@ function Hero() {
           <div className="hero-features">
 
             <div className="feature">
-              <div className="feature-icon" aria-hidden="true">
+              <span
+                className="feature-icon"
+                aria-hidden="true"
+              >
                 ✓
-              </div>
-
+              </span>
               <span>Expert Guidance</span>
             </div>
 
             <div className="feature">
-              <div className="feature-icon" aria-hidden="true">
+              <span
+                className="feature-icon"
+                aria-hidden="true"
+              >
                 🍃
-              </div>
-
+              </span>
               <span>Personalized Plan</span>
             </div>
 
             <div className="feature">
-              <div className="feature-icon" aria-hidden="true">
+              <span
+                className="feature-icon"
+                aria-hidden="true"
+              >
                 🌱
-              </div>
-
+              </span>
               <span>100% Natural</span>
             </div>
 
           </div>
 
         </div>
-
       </div>
+
     </section>
   );
 }

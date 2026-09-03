@@ -465,7 +465,7 @@
       Dedicated hero-mobile.webp is loaded
       automatically by the <picture> element.
     */
-    object-position: center center;
+    object-position: 72% center;
 
     filter: none;
 
@@ -670,7 +670,7 @@
   ------------------------------------------------------- */
 
   .hero-image {
-    object-position: center center;
+    object-position: 76% center;
 
     filter: none;
   }
